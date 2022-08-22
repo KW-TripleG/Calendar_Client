@@ -53,4 +53,15 @@ class CalendarHelper {
         return days
     }
     
+    func getDatesOfMonth(_ date: Date) -> [Date] {
+        let monthComp = calendar.dateComponents([.year, .month], from: date)
+        let monthDate = calendar.date(from: monthComp)!
+        let range = calendar.range(of: .day, in: .month, for: date)!
+        let dates = range.compactMap { day -> Date in
+            return calendar.date(byAdding: .day, value: day, to: monthDate)!
+        }
+        
+        return dates
+    }
+    
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80306232887C7AD00CEDD68 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80306222887C7AD00CEDD68 /* Schedule.swift */; };
+		A80306262887CFC700CEDD68 /* MonthlyGridPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80306252887CFC700CEDD68 /* MonthlyGridPicker.swift */; };
 		A803BE68288695BC00517485 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803BE67288695BC00517485 /* CalendarHelper.swift */; };
 		A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803BE6B28869C9E00517485 /* DateHolder.swift */; };
 		A897F52C2885948900EFB47A /* Calendar1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F52B2885948900EFB47A /* Calendar1App.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A80306222887C7AD00CEDD68 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A80306252887CFC700CEDD68 /* MonthlyGridPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyGridPicker.swift; sourceTree = "<group>"; };
 		A803BE67288695BC00517485 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		A803BE6B28869C9E00517485 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
 		A897F5282885948900EFB47A /* Calendar1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,13 +89,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A803BE66288695B000517485 /* CalendarHelper */ = {
+		A80306212887C79600CEDD68 /* ScheduleManager */ = {
+			isa = PBXGroup;
+			children = (
+				A80306222887C7AD00CEDD68 /* Schedule.swift */,
+			);
+			path = ScheduleManager;
+			sourceTree = "<group>";
+		};
+		A803BE66288695B000517485 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
 				A803BE67288695BC00517485 /* CalendarHelper.swift */,
 				A803BE6B28869C9E00517485 /* DateHolder.swift */,
 			);
-			path = CalendarHelper;
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		A897F51F2885948900EFB47A = {
@@ -117,7 +129,8 @@
 		A897F52A2885948900EFB47A /* Calendar1 */ = {
 			isa = PBXGroup;
 			children = (
-				A803BE66288695B000517485 /* CalendarHelper */,
+				A80306212887C79600CEDD68 /* ScheduleManager */,
+				A803BE66288695B000517485 /* Calendar */,
 				A897F5612885F43E00EFB47A /* Extentions */,
 				A897F5562885B71300EFB47A /* MonthlyView */,
 				A897F52B2885948900EFB47A /* Calendar1App.swift */,
@@ -160,6 +173,7 @@
 				A897F55B2885B81300EFB47A /* MonthlyGrid.swift */,
 				A897F55D2885B86300EFB47A /* DailyScheduleView.swift */,
 				A897F55F2885C6EC00EFB47A /* BottomControlView.swift */,
+				A80306252887CFC700CEDD68 /* MonthlyGridPicker.swift */,
 			);
 			path = MonthlyView;
 			sourceTree = "<group>";
@@ -302,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80306262887CFC700CEDD68 /* MonthlyGridPicker.swift in Sources */,
 				A897F55A2885B7EE00EFB47A /* MonthlyView.swift in Sources */,
 				A803BE68288695BC00517485 /* CalendarHelper.swift in Sources */,
 				A897F5602885C6ED00EFB47A /* BottomControlView.swift in Sources */,
@@ -310,6 +325,7 @@
 				A897F52C2885948900EFB47A /* Calendar1App.swift in Sources */,
 				A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */,
 				A897F55E2885B86300EFB47A /* DailyScheduleView.swift in Sources */,
+				A80306232887C7AD00CEDD68 /* Schedule.swift in Sources */,
 				A897F5632885F45D00EFB47A /* ColorExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
