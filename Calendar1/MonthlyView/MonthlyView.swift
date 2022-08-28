@@ -13,6 +13,8 @@ struct MonthlyView: View {
     
     @State var scheduleViewToggle: Bool = true
     
+//    @State var pageIndex: Int = 0
+    
     var body: some View {
         NavigationView() {
             ZStack {
@@ -23,7 +25,19 @@ struct MonthlyView: View {
                 
                 // main layer
                 VStack(spacing: 0) {
-                    MonthlyGrid()
+                    HStack {
+                        Spacer()
+                            .frame(height: 10)
+                    }
+                    MonthlyGridTitle()
+                    Spacer()
+                        .frame(height:0)
+//                    MonthlyGridPicker()
+                    
+                    MonthlyGridScroll()
+                    
+                    Spacer()
+                        .frame(height:0)
                     DailyScheduleView()
                         .background(Color.backgroundColor)
                     Divider()
@@ -59,9 +73,8 @@ struct MonthlyView: View {
                         })
                         
                         Button(action: {}, label: {
-                                Image(systemName: "plus")
-                            }
-                        )
+                            Image(systemName: "plus")
+                        })
                 })
             }
         }
@@ -81,6 +94,7 @@ struct MonthlyView_Previews: PreviewProvider {
 //        ContentView()
         MonthlyView()
             .environmentObject(dateHolder)
+            .previewDevice("iPhone 13 mini")
             
     }
 }

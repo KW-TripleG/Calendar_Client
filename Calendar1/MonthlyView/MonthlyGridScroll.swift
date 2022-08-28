@@ -11,6 +11,7 @@ import SwiftUI
 struct MonthlyGridScroll: View {
     
     @State var pageIndex: Int = 0
+//    @Binding var pageIndex: Int
     @State var numOfBackwardPages: Int = 6
     @State var numOfForwardPages: Int = 6
     

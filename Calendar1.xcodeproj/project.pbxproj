@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A80306232887C7AD00CEDD68 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80306222887C7AD00CEDD68 /* Schedule.swift */; };
 		A80306262887CFC700CEDD68 /* MonthlyGridPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80306252887CFC700CEDD68 /* MonthlyGridPicker.swift */; };
 		A803BE68288695BC00517485 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803BE67288695BC00517485 /* CalendarHelper.swift */; };
 		A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803BE6B28869C9E00517485 /* DateHolder.swift */; };
-		A87F5ECA28B3B8760019F99B /* MonthlyViewPaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5EC928B3B8760019F99B /* MonthlyViewPaging.swift */; };
+		A87F5ECA28B3B8760019F99B /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5EC928B3B8760019F99B /* MonthlyView.swift */; };
 		A87F5ECC28B3B9F60019F99B /* MonthlyGridTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECB28B3B9F60019F99B /* MonthlyGridTitle.swift */; };
 		A87F5ECE28B3BD040019F99B /* MonthlyGridScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECD28B3BD040019F99B /* MonthlyGridScroll.swift */; };
 		A87F5ED028B3BDF10019F99B /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECF28B3BDF10019F99B /* ViewExtention.swift */; };
@@ -22,7 +21,6 @@
 		A897F53D2885948C00EFB47A /* Calendar1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F53C2885948C00EFB47A /* Calendar1Tests.swift */; };
 		A897F5472885948C00EFB47A /* Calendar1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F5462885948C00EFB47A /* Calendar1UITests.swift */; };
 		A897F5492885948C00EFB47A /* Calendar1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F5482885948C00EFB47A /* Calendar1UITestsLaunchTests.swift */; };
-		A897F55A2885B7EE00EFB47A /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F5592885B7EE00EFB47A /* MonthlyView.swift */; };
 		A897F55C2885B81300EFB47A /* MonthlyGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F55B2885B81300EFB47A /* MonthlyGrid.swift */; };
 		A897F55E2885B86300EFB47A /* DailyScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F55D2885B86300EFB47A /* DailyScheduleView.swift */; };
 		A897F5602885C6ED00EFB47A /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F55F2885C6EC00EFB47A /* BottomControlView.swift */; };
@@ -47,11 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A80306222887C7AD00CEDD68 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		A80306252887CFC700CEDD68 /* MonthlyGridPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyGridPicker.swift; sourceTree = "<group>"; };
 		A803BE67288695BC00517485 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		A803BE6B28869C9E00517485 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
-		A87F5EC928B3B8760019F99B /* MonthlyViewPaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewPaging.swift; sourceTree = "<group>"; };
+		A87F5EC928B3B8760019F99B /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		A87F5ECB28B3B9F60019F99B /* MonthlyGridTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyGridTitle.swift; sourceTree = "<group>"; };
 		A87F5ECD28B3BD040019F99B /* MonthlyGridScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyGridScroll.swift; sourceTree = "<group>"; };
 		A87F5ECF28B3BDF10019F99B /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
@@ -65,7 +62,6 @@
 		A897F5422885948C00EFB47A /* Calendar1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Calendar1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A897F5462885948C00EFB47A /* Calendar1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar1UITests.swift; sourceTree = "<group>"; };
 		A897F5482885948C00EFB47A /* Calendar1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar1UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A897F5592885B7EE00EFB47A /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		A897F55B2885B81300EFB47A /* MonthlyGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyGrid.swift; sourceTree = "<group>"; };
 		A897F55D2885B86300EFB47A /* DailyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScheduleView.swift; sourceTree = "<group>"; };
 		A897F55F2885C6EC00EFB47A /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
@@ -97,14 +93,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A80306212887C79600CEDD68 /* ScheduleManager */ = {
-			isa = PBXGroup;
-			children = (
-				A80306222887C7AD00CEDD68 /* Schedule.swift */,
-			);
-			path = ScheduleManager;
-			sourceTree = "<group>";
-		};
 		A803BE66288695B000517485 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +125,6 @@
 		A897F52A2885948900EFB47A /* Calendar1 */ = {
 			isa = PBXGroup;
 			children = (
-				A80306212887C79600CEDD68 /* ScheduleManager */,
 				A803BE66288695B000517485 /* Calendar */,
 				A897F5612885F43E00EFB47A /* Extentions */,
 				A897F5562885B71300EFB47A /* MonthlyView */,
@@ -177,12 +164,11 @@
 		A897F5562885B71300EFB47A /* MonthlyView */ = {
 			isa = PBXGroup;
 			children = (
-				A897F5592885B7EE00EFB47A /* MonthlyView.swift */,
 				A897F55B2885B81300EFB47A /* MonthlyGrid.swift */,
 				A897F55D2885B86300EFB47A /* DailyScheduleView.swift */,
 				A897F55F2885C6EC00EFB47A /* BottomControlView.swift */,
 				A80306252887CFC700CEDD68 /* MonthlyGridPicker.swift */,
-				A87F5EC928B3B8760019F99B /* MonthlyViewPaging.swift */,
+				A87F5EC928B3B8760019F99B /* MonthlyView.swift */,
 				A87F5ECB28B3B9F60019F99B /* MonthlyGridTitle.swift */,
 				A87F5ECD28B3BD040019F99B /* MonthlyGridScroll.swift */,
 			);
@@ -330,17 +316,15 @@
 			files = (
 				A87F5ECE28B3BD040019F99B /* MonthlyGridScroll.swift in Sources */,
 				A80306262887CFC700CEDD68 /* MonthlyGridPicker.swift in Sources */,
-				A897F55A2885B7EE00EFB47A /* MonthlyView.swift in Sources */,
 				A803BE68288695BC00517485 /* CalendarHelper.swift in Sources */,
 				A897F5602885C6ED00EFB47A /* BottomControlView.swift in Sources */,
 				A897F55C2885B81300EFB47A /* MonthlyGrid.swift in Sources */,
 				A897F52E2885948900EFB47A /* ContentView.swift in Sources */,
-				A87F5ECA28B3B8760019F99B /* MonthlyViewPaging.swift in Sources */,
+				A87F5ECA28B3B8760019F99B /* MonthlyView.swift in Sources */,
 				A897F52C2885948900EFB47A /* Calendar1App.swift in Sources */,
 				A87F5ED028B3BDF10019F99B /* ViewExtention.swift in Sources */,
 				A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */,
 				A897F55E2885B86300EFB47A /* DailyScheduleView.swift in Sources */,
-				A80306232887C7AD00CEDD68 /* Schedule.swift in Sources */,
 				A897F5632885F45D00EFB47A /* ColorExtention.swift in Sources */,
 				A87F5ECC28B3B9F60019F99B /* MonthlyGridTitle.swift in Sources */,
 			);
