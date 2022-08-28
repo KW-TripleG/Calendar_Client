@@ -86,6 +86,7 @@ struct MonthlyViewPaging_Previews: PreviewProvider {
 //        ContentView()
         MonthlyViewPaging()
             .environmentObject(dateHolder)
+            .previewDevice("iPhone 13 mini")
             
     }
 }

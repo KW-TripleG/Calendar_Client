@@ -10,26 +10,29 @@ import SwiftUI
 struct MonthlyGridPicker: View {
     
     @EnvironmentObject var dateHolder: DateHolder
-//    var month: Date
+    
+    let month: Date
+    
     
     var body: some View {
+        
+        let calendarHelper = CalendarHelper()
+        
+        let todayDay = calendarHelper.getDayOfMonth(dateHolder.date)
+        let daysInMonth = calendarHelper.getDaysInMonth(month)
+        
+        let weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
+        
+        let datesOfCurrentMonth = calendarHelper.getDatesOfMonth(dateHolder.date)
+        let daysOfCuttentMonth = Array(1...daysInMonth).map {"\($0)"}
+        let zipOfCurrentMonth = Array(zip(datesOfCurrentMonth, daysOfCuttentMonth))
+        let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
+        
+        let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
+        
+        
         VStack(spacing: 0) {
-            
-            let calendarHelper = CalendarHelper()
-            
-            let todayDay = calendarHelper.getDayOfMonth(dateHolder.date)
-            let daysInMonth = calendarHelper.getDaysInMonth(dateHolder.date)
-            
-            let weekends = calendarHelper.getWeekendDaysInMonth(dateHolder.date).map {"\($0)"}
-            
-            let datesOfCurrentMonth = calendarHelper.getDatesOfMonth(dateHolder.date)
-            let daysOfCuttentMonth = Array(1...daysInMonth).map {"\($0)"}
-            let zipOfCurrentMonth = Array(zip(datesOfCurrentMonth, daysOfCuttentMonth))
-            let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(dateHolder.date)
-            
-            let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
-            
-            
+
             LazyVGrid(columns: cols, spacing: 0) {
                 
                 // blank
@@ -91,7 +94,8 @@ struct MonthlyGridPicker_Previews: PreviewProvider {
     static let dateHolder = DateHolder()
 
     static var previews: some View {
-        MonthlyGridPicker()
+        MonthlyGridPicker(month: dateHolder.date)
             .environmentObject(dateHolder)
+            .previewDevice("iPhone 13 mini")
     }
 }

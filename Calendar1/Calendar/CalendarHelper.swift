@@ -64,4 +64,8 @@ class CalendarHelper {
         return dates
     }
     
+    func getMonthAdding(_ value: Int, to: Date) -> Date {
+        return calendar.date(byAdding: .month, value: value, to: to)!
+    }
+    
 }

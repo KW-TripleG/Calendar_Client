@@ -30,6 +30,8 @@ struct MonthlyGridTitle: View {
                     }
                 }
             }
+            
+            Divider()
         }
     }
 }
