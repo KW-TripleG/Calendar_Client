@@ -1,5 +1,5 @@
 //
-//  MonthlyGrid.swift
+//  MonthlyCalendarItem.swift
 //  Calendar1
 //
 //  Created by Coldot on 2022/07/19.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MonthlyGrid: View {
+struct MonthlyCalendarItem: View {
     
     @EnvironmentObject var dateHolder: DateHolder
     
@@ -89,12 +89,12 @@ struct MonthlyGrid: View {
 
 }
 
-struct MonthlyGrid_Previews: PreviewProvider {
+struct MonthlyCalendarItem_Previews: PreviewProvider {
 
     static let dateHolder = DateHolder()
 
     static var previews: some View {
-        MonthlyGrid(month: dateHolder.date)
+        MonthlyCalendarItem(month: dateHolder.date)
             .environmentObject(dateHolder)
             .previewDevice("iPhone 13 mini")
     }

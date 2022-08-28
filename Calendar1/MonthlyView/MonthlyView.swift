@@ -13,7 +13,6 @@ struct MonthlyView: View {
     
     @State var scheduleViewToggle: Bool = true
     
-//    @State var pageIndex: Int = 0
     
     var body: some View {
         NavigationView() {
@@ -29,18 +28,10 @@ struct MonthlyView: View {
                         Spacer()
                             .frame(height: 10)
                     }
-                    MonthlyGridTitle()
-                    Spacer()
-                        .frame(height:0)
-//                    MonthlyGridPicker()
                     
-                    MonthlyGridScroll()
-                    
-                    Spacer()
-                        .frame(height:0)
+                    MonthlyCalendar()
                     DailyScheduleView()
                         .background(Color.backgroundColor)
-                    Divider()
                     BottomControlView()
                 }
                 .navigationBarTitleDisplayMode(.inline)

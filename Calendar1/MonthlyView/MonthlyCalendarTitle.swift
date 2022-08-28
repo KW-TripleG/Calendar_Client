@@ -1,5 +1,5 @@
 //
-//  MonthlyGridTitle.swift
+//  MonthlyCalendarTitle.swift
 //  Calendar1
 //
 //  Created by Coldot on 2022/08/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MonthlyGridTitle: View {
+struct MonthlyCalendarTitle: View {
     var body: some View {
         
         VStack(spacing: 0) {
@@ -36,8 +36,8 @@ struct MonthlyGridTitle: View {
     }
 }
 
-struct MonthlyGridTitle_Previews: PreviewProvider {
+struct MonthlyCalendarTitle_Previews: PreviewProvider {
     static var previews: some View {
-        MonthlyGridTitle()
+        MonthlyCalendarTitle()
     }
 }

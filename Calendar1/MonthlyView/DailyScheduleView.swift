@@ -21,6 +21,8 @@ struct DailyScheduleView: View {
                 .font(.system(size: 22))
             
             Spacer()
+            
+            Divider()
         }
     }
 }
