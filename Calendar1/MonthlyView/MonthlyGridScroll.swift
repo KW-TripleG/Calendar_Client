@@ -49,13 +49,13 @@ struct MonthlyGridScroll: View {
                 ForEach(-numOfBackwardPages ... -1, id: \.self) { index in
                     let month = calendarHelper.getMonthAdding(index, to: nowMonth)
                     
-                    MonthlyGridPicker(month: month)
+                    MonthlyGrid(month: month)
                         .tag(index)
                         .rotationEffect(.init(degrees: -90))
                         .frame(width: proxy.size.width, height: proxy.size.height)
                 }
 
-                MonthlyGridPicker(month: nowMonth)
+                MonthlyGrid(month: nowMonth)
                     .tag(0)
                     .rotationEffect(.init(degrees: -90))
                     .frame(width: proxy.size.width, height: proxy.size.height)
@@ -63,7 +63,7 @@ struct MonthlyGridScroll: View {
                 ForEach(1 ... numOfForwardPages, id: \.self) { index in
                     let month = calendarHelper.getMonthAdding(index, to: nowMonth)
                     
-                    MonthlyGridPicker(month: month)
+                    MonthlyGrid(month: month)
                         .tag(index)
                         .rotationEffect(.init(degrees: -90))
                         .frame(width: proxy.size.width, height: proxy.size.height)

@@ -11,40 +11,28 @@ struct MonthlyGrid: View {
     
     @EnvironmentObject var dateHolder: DateHolder
     
+    let month: Date
+    
+    
     var body: some View {
+        
+        let calendarHelper = CalendarHelper()
+        
+        let todayDay = calendarHelper.getDayOfMonth(dateHolder.date)
+        let daysInMonth = calendarHelper.getDaysInMonth(month)
+        
+        let weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
+        
+        let datesOfCurrentMonth = calendarHelper.getDatesOfMonth(dateHolder.date)
+        let daysOfCuttentMonth = Array(1...daysInMonth).map {"\($0)"}
+        let zipOfCurrentMonth = Array(zip(datesOfCurrentMonth, daysOfCuttentMonth))
+        let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
+        
+        let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
+        
+        
         VStack(spacing: 0) {
-            HStack {
-                Spacer()
-                    .frame(height: 10)
-            }
-            
-//            Text("MonthlyGrid")
-            
-            let calendarHelper = CalendarHelper()
-            let todayDay = calendarHelper.getDayOfMonth(dateHolder.date)
-            let daysInMonth = calendarHelper.getDaysInMonth(dateHolder.date)
-            let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(dateHolder.date)
-            let weekends = calendarHelper.getWeekendDaysInMonth(dateHolder.date).map {"\($0)"}
-            let dayNames = ["일", "월", "화", "수", "목", "금", "토"]
-            let data = Array(1...daysInMonth).map {"\($0)"}
-            let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
-            
-            
-            LazyVGrid(columns: cols, spacing: 0) {
-                
-                // title
-                ForEach(dayNames, id: \.self) { n in
-                    VStack {
-                        Text(n)
-                            .font(.system(
-                                size: 11))
-                            .opacity(["일", "토"].contains(n) ? 0.5 : 1)
-                        
-                        Spacer().frame(height: 5)
-                    }
-                }
-            }
-            
+
             LazyVGrid(columns: cols, spacing: 0) {
                 
                 // blank
@@ -69,7 +57,7 @@ struct MonthlyGrid: View {
                 }
                 
                 // real-value
-                ForEach(data, id: \.self) {day in
+                ForEach(zipOfCurrentMonth, id: \.1) { date, day in
                     VStack {
                         Divider()
                         
@@ -98,19 +86,16 @@ struct MonthlyGrid: View {
             
         }
     }
+
 }
 
 struct MonthlyGrid_Previews: PreviewProvider {
-    
-    static let newDateComp = DateComponents(year: 2022, month: 9, day: 3)
-    static let newDate = Calendar.current.date(from: newDateComp)!
 
-    static let dateHolder = DateHolder(newDate)
-//    static let dateHolder = DateHolder()
-    
+    static let dateHolder = DateHolder()
+
     static var previews: some View {
-//        ContentView()
-        MonthlyGrid()
+        MonthlyGrid(month: dateHolder.date)
             .environmentObject(dateHolder)
+            .previewDevice("iPhone 13 mini")
     }
 }
