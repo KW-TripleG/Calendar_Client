@@ -31,7 +31,6 @@ struct MonthlyCalendarTitle: View {
                 }
             }
             
-            Divider()
         }
     }
 }

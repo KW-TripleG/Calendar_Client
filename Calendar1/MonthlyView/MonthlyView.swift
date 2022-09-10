@@ -26,10 +26,11 @@ struct MonthlyView: View {
                 VStack(spacing: 0) {
                     HStack {
                         Spacer()
-                            .frame(height: 10)
+                            .frame(height: 5)
                     }
                     
                     MonthlyCalendar()
+
                     DailyScheduleView()
                         .background(Color.backgroundColor)
                     BottomControlView()
@@ -75,14 +76,13 @@ struct MonthlyView: View {
 
 struct MonthlyView_Previews: PreviewProvider {
     
-//    static let newDateComp = DateComponents(year: 2022, month: 9, day: 3)
-//    static let newDate = Calendar.current.date(from: newDateComp)!
-//
-//    static let dateHolder = DateHolder(newDate)
-    static let dateHolder = DateHolder()
+    static let newDateComp = DateComponents(year: 2022, month: 7, day: 3)
+    static let newDate = Calendar.current.date(from: newDateComp)!
+
+    static let dateHolder = DateHolder(newDate)
+//    static let dateHolder = DateHolder()
     
     static var previews: some View {
-//        ContentView()
         MonthlyView()
             .environmentObject(dateHolder)
             .previewDevice("iPhone 13 mini")
