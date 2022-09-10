@@ -15,7 +15,6 @@ struct Calendar1App: App {
             let dateHolder = DateHolder()
             
             ContentView()
-//            RotationAndFrameTest()
                 .environmentObject(dateHolder)
         }
     }
