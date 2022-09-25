@@ -31,8 +31,14 @@ struct MonthlyView: View {
                     
                     MonthlyCalendar()
 
-                    DailyScheduleView()
+                    DailyScheduleView(schedules: .constant([
+                        Schedule(id: 0, title: "asdf", content: nil, userID: "", togetherID: nil),
+                        Schedule(id: 1, title: "foo", content: nil, userID: "", togetherID: nil),
+                        Schedule(id: 2, title: "bar", content: nil, userID: "", togetherID: nil),
+                        Schedule(id: 3, title: "qaz", content: nil, userID: "", togetherID: nil)
+                    ]))
                         .background(Color.backgroundColor)
+
                     BottomControlView()
                 }
                 .navigationBarTitleDisplayMode(.inline)
