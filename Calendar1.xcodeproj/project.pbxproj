@@ -196,9 +196,7 @@
 				A80306252887CFC700CEDD68 /* MonthlyCalendarItem.swift */,
 				A87F5EC928B3B8760019F99B /* MonthlyView.swift */,
 				A87F5ECB28B3B9F60019F99B /* MonthlyCalendarTitle.swift */,
-				EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */,
-				A87F5ECD28B3BD040019F99B /* MonthlyCalendar.swift */,
-				A887843328CC6668004FF3B0 /* HeightReaderView.swift */,
+				EFBA379628E0B195009091BF /* MonthlyCalendar */,
 				B1464447594EB1EB37A2D61D /* ScheduleItem.swift */,
 			);
 			path = MonthlyView;
@@ -216,9 +214,19 @@
 		EFBA379328E0ADCE009091BF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A887843328CC6668004FF3B0 /* HeightReaderView.swift */,
 				EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		EFBA379628E0B195009091BF /* MonthlyCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */,
+				A87F5ECD28B3BD040019F99B /* MonthlyCalendar.swift */,
+			);
+			path = MonthlyCalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -12,11 +12,17 @@ struct MonthData: Hashable {
     let month: Date
 }
 
+struct HeightAnimation: Equatable {
+    let height: CGFloat?
+    let shouldAnimate: Bool
+}
+
 final class MonthlyCalendarModel: ObservableObject {
-    @Published private(set) var height: CGFloat?
+    @Published private(set) var heightAnimation: HeightAnimation = .init(height: nil, shouldAnimate: false)
     @Published private(set) var monthDatas: [MonthData] = []
     
     private var heightCache: [Int: CGFloat?] = [:]
+    private let calendarHelper = CalendarHelper()
     private let currentDate: Date
     
     init() {
@@ -39,6 +45,10 @@ extension MonthlyCalendarModel {
     func updateHeightCache(with index: Int, height: CGFloat?) {
         guard height != .zero else { return }
         
+        if index == .zero && heightCache[index] == nil {
+            self.heightAnimation = .init(height: height, shouldAnimate: false)
+        }
+        
         heightCache[index] = height
     }
 }
@@ -47,13 +57,13 @@ extension MonthlyCalendarModel {
     private func updateHeightIfNeeded(with pageIndex: Int) {
         guard let height = heightCache[pageIndex] else { return }
         
-        self.height = height
+        self.heightAnimation = .init(height: height, shouldAnimate: true)
     }
     
     private func createMonthDatasIfNeeded(with pageIndex: Int) {
         if let firstIndex = self.monthDatas.first?.index, pageIndex == firstIndex {
             let insertedMonthDatas = (abs(firstIndex) + 1...abs(firstIndex) + 20).map { index in
-                MonthData(index: -index, month: CalendarHelper().getMonthAdding(-index, to: currentDate))
+                MonthData(index: -index, month: calendarHelper.getMonthAdding(-index, to: currentDate))
             }.reversed()
             
             self.monthDatas = insertedMonthDatas + self.monthDatas
@@ -61,7 +71,7 @@ extension MonthlyCalendarModel {
         
         if let lastIndex = self.monthDatas.last?.index, pageIndex == lastIndex {
             let appendedMonthDatas = (lastIndex + 1...lastIndex + 20).map { index in
-                MonthData(index: index, month: CalendarHelper().getMonthAdding(index, to: currentDate))
+                MonthData(index: index, month: calendarHelper.getMonthAdding(index, to: currentDate))
             }
             self.monthDatas += appendedMonthDatas
         }

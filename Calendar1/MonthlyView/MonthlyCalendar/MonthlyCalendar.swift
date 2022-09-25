@@ -13,7 +13,7 @@ struct MonthlyCalendar: View {
     @StateObject private var viewModel = MonthlyCalendarModel()
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             MonthlyCalendarTitle()
             TabView(selection: $pageIndex) {
                 ForEach(viewModel.monthDatas, id: \.self) { monthDate in
@@ -32,9 +32,14 @@ struct MonthlyCalendar: View {
             )
             .onChange(of: pageIndex, perform: self.viewModel.pageIndexChanged)
             .frame(height: calendarHeight)
-            .onChange(of: viewModel.height) { height in
+            .onChange(of: viewModel.heightAnimation) { heightAnimation in
+                guard heightAnimation.shouldAnimate else {
+                    calendarHeight = heightAnimation.height
+                    return
+                }
+                
                 withAnimation() {
-                    calendarHeight = height
+                    calendarHeight = heightAnimation.height
                 }
             }
         }
