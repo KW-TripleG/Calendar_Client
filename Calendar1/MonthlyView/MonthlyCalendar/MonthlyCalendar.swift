@@ -30,8 +30,8 @@ struct MonthlyCalendar: View {
             .tabViewStyle(
                 PageTabViewStyle(indexDisplayMode: .never)
             )
-            .onChange(of: pageIndex, perform: self.viewModel.pageIndexChanged)
             .frame(height: calendarHeight)
+            .onChange(of: pageIndex, perform: viewModel.pageIndexChanged)
             .onChange(of: viewModel.heightAnimation) { heightAnimation in
                 guard heightAnimation.shouldAnimate else {
                     calendarHeight = heightAnimation.height
