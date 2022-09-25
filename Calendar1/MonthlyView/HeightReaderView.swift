@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct HeightReaderView: View {
-    
-    let index: Int
-    
-    @Binding var Heights: [Int: CGFloat?]
-    
+  private let index: Int
+  
+  init(index: Int) {
+    self.index = index
+  }
+  
     var body: some View {
         GeometryReader { proxy in
             Color.clear
-                .onAppear {
-                    if !(Heights.keys.contains(index)) {
-//                        print("Height in HeightReaderView #\(index) = \(proxy.size.height)")
-                        Heights.updateValue(proxy.size.height, forKey: index)
-                    }
-                }
+            .preference(key: HeightPreferenceKey.self, value: .init(index: index, height: proxy.size.height))
         }
     }
 }
