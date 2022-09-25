@@ -14,6 +14,9 @@
 		A87F5ECC28B3B9F60019F99B /* MonthlyCalendarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECB28B3B9F60019F99B /* MonthlyCalendarTitle.swift */; };
 		A87F5ECE28B3BD040019F99B /* MonthlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECD28B3BD040019F99B /* MonthlyCalendar.swift */; };
 		A87F5ED028B3BDF10019F99B /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECF28B3BDF10019F99B /* ViewExtention.swift */; };
+		A882B96328DEC95D00D0EF83 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882B96228DEC95D00D0EF83 /* AuthView.swift */; };
+		A882B96528DEC9D100D0EF83 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882B96428DEC9D100D0EF83 /* SignInView.swift */; };
+		A882B96728DECA0E00D0EF83 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A882B96628DECA0E00D0EF83 /* SignUpView.swift */; };
 		A887843428CC6668004FF3B0 /* HeightReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887843328CC6668004FF3B0 /* HeightReaderView.swift */; };
 		A897F52C2885948900EFB47A /* Calendar1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F52B2885948900EFB47A /* Calendar1App.swift */; };
 		A897F52E2885948900EFB47A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F52D2885948900EFB47A /* ContentView.swift */; };
@@ -25,6 +28,7 @@
 		A897F55E2885B86300EFB47A /* DailyScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F55D2885B86300EFB47A /* DailyScheduleView.swift */; };
 		A897F5602885C6ED00EFB47A /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F55F2885C6EC00EFB47A /* BottomControlView.swift */; };
 		A897F5632885F45D00EFB47A /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F5622885F45C00EFB47A /* ColorExtention.swift */; };
+		A8F5E42B28DECBA700CF4391 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F5E42A28DECBA700CF4391 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,9 @@
 		A87F5ECB28B3B9F60019F99B /* MonthlyCalendarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendarTitle.swift; sourceTree = "<group>"; };
 		A87F5ECD28B3BD040019F99B /* MonthlyCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendar.swift; sourceTree = "<group>"; };
 		A87F5ECF28B3BDF10019F99B /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
+		A882B96228DEC95D00D0EF83 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A882B96428DEC9D100D0EF83 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		A882B96628DECA0E00D0EF83 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A887843328CC6668004FF3B0 /* HeightReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightReaderView.swift; sourceTree = "<group>"; };
 		A897F5282885948900EFB47A /* Calendar1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A897F52B2885948900EFB47A /* Calendar1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar1App.swift; sourceTree = "<group>"; };
@@ -66,6 +73,7 @@
 		A897F55D2885B86300EFB47A /* DailyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScheduleView.swift; sourceTree = "<group>"; };
 		A897F55F2885C6EC00EFB47A /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		A897F5622885F45C00EFB47A /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
+		A8F5E42A28DECBA700CF4391 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,17 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		A882B96128DEC92B00D0EF83 /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				A882B96228DEC95D00D0EF83 /* AuthView.swift */,
+				A882B96428DEC9D100D0EF83 /* SignInView.swift */,
+				A882B96628DECA0E00D0EF83 /* SignUpView.swift */,
+				A8F5E42A28DECBA700CF4391 /* LoginView.swift */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
 		A897F51F2885948900EFB47A = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +144,9 @@
 		A897F52A2885948900EFB47A /* Calendar1 */ = {
 			isa = PBXGroup;
 			children = (
-				A803BE66288695B000517485 /* Calendar */,
 				A897F5612885F43E00EFB47A /* Extentions */,
+				A803BE66288695B000517485 /* Calendar */,
+				A882B96128DEC92B00D0EF83 /* AuthView */,
 				A897F5562885B71300EFB47A /* MonthlyView */,
 				A897F52B2885948900EFB47A /* Calendar1App.swift */,
 				A897F52D2885948900EFB47A /* ContentView.swift */,
@@ -314,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A882B96328DEC95D00D0EF83 /* AuthView.swift in Sources */,
 				A87F5ECE28B3BD040019F99B /* MonthlyCalendar.swift in Sources */,
 				A80306262887CFC700CEDD68 /* MonthlyCalendarItem.swift in Sources */,
 				A803BE68288695BC00517485 /* CalendarHelper.swift in Sources */,
@@ -322,8 +343,11 @@
 				A87F5ECA28B3B8760019F99B /* MonthlyView.swift in Sources */,
 				A897F52C2885948900EFB47A /* Calendar1App.swift in Sources */,
 				A87F5ED028B3BDF10019F99B /* ViewExtention.swift in Sources */,
+				A882B96528DEC9D100D0EF83 /* SignInView.swift in Sources */,
+				A8F5E42B28DECBA700CF4391 /* LoginView.swift in Sources */,
 				A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */,
 				A897F55E2885B86300EFB47A /* DailyScheduleView.swift in Sources */,
+				A882B96728DECA0E00D0EF83 /* SignUpView.swift in Sources */,
 				A897F5632885F45D00EFB47A /* ColorExtention.swift in Sources */,
 				A887843428CC6668004FF3B0 /* HeightReaderView.swift in Sources */,
 				A87F5ECC28B3B9F60019F99B /* MonthlyCalendarTitle.swift in Sources */,

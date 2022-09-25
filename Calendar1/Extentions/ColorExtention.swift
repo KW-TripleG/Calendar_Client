@@ -10,6 +10,8 @@ import SwiftUI
 
 
 extension Color {
-    static let backgroundColor = Color("backgroundColor")
+    static let backgroundColor = Color("BackgroundColor")
+    static let logoAccentColor = Color("LogoAccentColor")
+    static let logoAccentColorLight = Color("LogoAccentColorLight")
     
 }
