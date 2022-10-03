@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+
+struct AuthTextFieldStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
+            .padding()
+            .background(Color.backgroundColor)
+            .cornerRadius(10)
+    }
+}
+
+
 struct AuthView: View {
 
     @State var isSignIn: Bool = true

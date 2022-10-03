@@ -26,9 +26,6 @@ struct SignUpView: View {
             
             // main layer
             VStack {
-                Spacer()
-                    .frame(height: 15)
-                
                 HStack {
                     Text("Sign Up")
                         .font(.system(size: 30, weight: .bold))
@@ -38,43 +35,34 @@ struct SignUpView: View {
                 
                 TextField("Username", text: $input_username)
                     .textContentType(.username)
-                    .padding()
-                    .background(Color.backgroundColor)
-                    .cornerRadius(10)
+                    .modifier(AuthTextFieldStyle())
                 SecureField("New Password", text: $input_password_new)
                     .textContentType(.newPassword)
-                    .padding()
-                    .background(Color.backgroundColor)
-                    .cornerRadius(10)
+                    .privacySensitive()
+                    .modifier(AuthTextFieldStyle())
                 SecureField("Confirm Password", text: $input_password_conf)
                     .textContentType(.password)
-                    .padding()
-                    .background(Color.backgroundColor)
-                    .cornerRadius(10)
+                    .privacySensitive()
+                    .modifier(AuthTextFieldStyle())
                 TextField("Email Address", text: $input_email)
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
-                    .padding()
-                    .background(Color.backgroundColor)
-                    .cornerRadius(10)
+                    .modifier(AuthTextFieldStyle())
                 
                 Spacer()
                     .frame(height: 15)
                 
-                Button(action: {
-                    
-                }, label: {
+                Button(action: {}) {
                     Text("Submit")
                         .frame(maxWidth: .infinity)
                         .padding(EdgeInsets.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                         .background(Color.accentColor)
                         .foregroundColor(Color.white)
                         .cornerRadius(10)
-                })
+                }
                 
                 
                 Spacer()
-                
                 
                 Button("Sign In") {
                     self.isSignIn = true
@@ -82,7 +70,7 @@ struct SignUpView: View {
                 .padding()
                 
             }
-            .padding(EdgeInsets.init(top: 20, leading: 15, bottom: 0, trailing: 15))
+            .padding(EdgeInsets.init(top: 35, leading: 15, bottom: 0, trailing: 15))
         }
     }
 }

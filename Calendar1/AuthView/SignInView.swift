@@ -24,9 +24,6 @@ struct SignInView: View {
             
             // main layer
             VStack {
-                Spacer()
-                    .frame(height: 15)
-                
                 HStack {
                     Text("Sign In")
                         .font(.system(size: 30, weight: .bold))
@@ -36,41 +33,34 @@ struct SignInView: View {
                 
                 TextField("Username", text: $input_username)
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
+                    .modifier(AuthTextFieldStyle())
                 SecureField("Password", text: $input_password)
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
+                    .privacySensitive()
+                    .modifier(AuthTextFieldStyle())
                 
                 Spacer()
                     .frame(height: 15)
                 
-                Button(action: {
-                    
-                }, label: {
+                Button(action: {}) {
                     Text("Sign In")
                         .frame(maxWidth: .infinity)
-                        .padding(EdgeInsets.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        .padding(.vertical, 10)
                         .background(Color.accentColor)
                         .foregroundColor(Color.white)
                         .cornerRadius(10)
-                })
-                
+                }
                 
                 Spacer()
                 
-                
-                Button(action: {
-                    self.isSignIn = false
-                }, label: {
+                Button(action: {}) {
                     Text("Sign Up")
                         .foregroundColor(Color.accentColor)
                         .padding()
-                })
+                }
                 
             }
-            .padding(EdgeInsets.init(top: 20, leading: 15, bottom: 0, trailing: 15))
+            .padding(EdgeInsets.init(top: 35, leading: 15, bottom: 0, trailing: 15))
         }
     }
 }
