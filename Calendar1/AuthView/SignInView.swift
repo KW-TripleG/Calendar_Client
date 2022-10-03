@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+
 struct SignInView: View {
+    @ObservedObject var viewModel: AuthViewModel
     
-    @Binding var isSignIn: Bool
-    
-    @State private var input_username: String = ""
-    @State private var input_password: String = ""
+    init(_ viewModel: AuthViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ZStack {
@@ -27,22 +28,21 @@ struct SignInView: View {
                 HStack {
                     Text("Sign In")
                         .font(.system(size: 30, weight: .bold))
-                    
                     Spacer()
                 }
                 
-                TextField("Username", text: $input_username)
-                    .padding()
+                TextField("Username", text: $viewModel.input_username)
+                    .textContentType(.username)
                     .modifier(AuthTextFieldStyle())
-                SecureField("Password", text: $input_password)
-                    .padding()
+                SecureField("Password", text: $viewModel.input_password)
+                    .textContentType(.password)
                     .privacySensitive()
                     .modifier(AuthTextFieldStyle())
                 
                 Spacer()
                     .frame(height: 15)
                 
-                Button(action: {}) {
+                Button(action: viewModel.signInButtonClicked) {
                     Text("Sign In")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 10)
@@ -51,19 +51,22 @@ struct SignInView: View {
                         .cornerRadius(10)
                 }
                 
+                
                 Spacer()
                 
-                Button(action: {}) {
+                Button(action: viewModel.toggleSignIn) {
                     Text("Sign Up")
                         .foregroundColor(Color.accentColor)
                         .padding()
                 }
                 
-            }
+            } // VStack
             .padding(EdgeInsets.init(top: 35, leading: 15, bottom: 0, trailing: 15))
-        }
+            
+        } // ZStack
     }
 }
+
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {

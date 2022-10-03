@@ -21,20 +21,20 @@ struct AuthTextFieldStyle: ViewModifier {
 
 
 struct AuthView: View {
-
-    @State var isSignIn: Bool = true
+    @StateObject var viewModel = AuthViewModel()
 
     var body: some View {
 
-        if (isSignIn) {
-            SignInView(isSignIn: $isSignIn)
+        if (viewModel.willSignIn) {
+            SignInView(viewModel)
         }
         else {
-            SignUpView(isSignIn: $isSignIn)
+            SignUpView(viewModel)
         }
 
     }
 }
+
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
