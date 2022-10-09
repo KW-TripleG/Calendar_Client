@@ -7,21 +7,34 @@
 
 import SwiftUI
 
-struct AuthView: View {
 
-    @State var isSignIn: Bool = true
+struct AuthTextFieldStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
+            .padding()
+            .background(Color.backgroundColor)
+            .cornerRadius(10)
+    }
+}
+
+
+struct AuthView: View {
+    @StateObject var viewModel = AuthViewModel()
 
     var body: some View {
 
-        if (isSignIn) {
-            SignInView(isSignIn: $isSignIn)
+        if (viewModel.willSignIn) {
+            SignInView(viewModel)
         }
         else {
-            SignUpView(isSignIn: $isSignIn)
+            SignUpView(viewModel)
         }
 
     }
 }
+
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
