@@ -28,18 +28,34 @@ struct MonthlyView: View {
                         Spacer()
                             .frame(height: 5)
                     }
-                    
+
                     MonthlyCalendar()
 
-                    DailyScheduleView(schedules: .constant([
-                        Schedule(id: 0, title: "asdf", content: nil, userID: "", togetherID: nil),
-                        Schedule(id: 1, title: "foo", content: nil, userID: "", togetherID: nil),
-                        Schedule(id: 2, title: "bar", content: nil, userID: "", togetherID: nil),
-                        Schedule(id: 3, title: "qaz", content: nil, userID: "", togetherID: nil)
-                    ]))
-                        .background(Color.backgroundColor)
-
-                    BottomControlView()
+                    ScrollView {
+                        DailyScheduleView(schedules: .constant([
+                            Schedule(id: 0, title: "asdf", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 1, title: "foo", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 2, title: "bar", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 3, title: "qaz", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 4, title: "qax", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 5, title: "lorem", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 6, title: "ipsum", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 7, title: "dolor", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 8, title: "sit", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 9, title: "amet", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 10, title: "abc", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 11, title: "def", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 12, title: "ghi", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 13, title: "jkl", content: nil, userID: "", togetherID: nil),
+                            Schedule(id: 14, title: "mno", content: nil, userID: "", togetherID: nil),
+                        ]))
+                            .background(Color.backgroundColor)
+                    }
+                }
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        BottomControlView()
+                    }
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(
