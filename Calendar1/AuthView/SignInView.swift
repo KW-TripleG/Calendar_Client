@@ -70,6 +70,7 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+      let globalRouter = GlobalRouter()
+      AuthView(viewModel: .init(globalRouter: globalRouter))
     }
 }

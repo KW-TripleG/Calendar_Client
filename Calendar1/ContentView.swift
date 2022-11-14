@@ -9,11 +9,15 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
-    @EnvironmentObject var dateHolder: DateHolder
+    @EnvironmentObject private var globalRounter: GlobalRouter
     
     var body: some View {
+      switch globalRounter.screen {
+      case .auth:
+        AuthView(viewModel: .init(globalRouter: self.globalRounter))
+      case .calendar:
         MonthlyView()
+      }
     }
 }
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 
 final class AuthViewModel: ObservableObject {
+    private var globalRouter: GlobalRouter
+  
     @Published private(set) var willSignIn: Bool
     
     @Published var input_username: String = ""
@@ -19,8 +21,9 @@ final class AuthViewModel: ObservableObject {
     @Published var input_email: String = ""
     
     
-    init() {
+    init(globalRouter: GlobalRouter) {
         self.willSignIn = true
+        self.globalRouter = globalRouter
     }
 }
 
