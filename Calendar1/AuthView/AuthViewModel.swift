@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-
+@MainActor
 final class AuthViewModel: ObservableObject {
+    private var globalRouter: GlobalRouter
+  
     @Published private(set) var willSignIn: Bool
     
     @Published var input_username: String = ""
@@ -19,8 +21,9 @@ final class AuthViewModel: ObservableObject {
     @Published var input_email: String = ""
     
     
-    init() {
+    init(globalRouter: GlobalRouter) {
         self.willSignIn = true
+        self.globalRouter = globalRouter
     }
 }
 
@@ -33,9 +36,18 @@ extension AuthViewModel {
 
 extension AuthViewModel {
     func signInButtonClicked() {
-        // ...
+        Task {
+            do {
+                let response: LoginResponse = try await Promise.shared.request(.login(id: self.input_username, password: self.input_password))
+              
+                if response.status == 200 {
+                  self.globalRouter.screen = .calendar
+                }
+            } catch let error {
+                print(error)
+            }
+        }
         
-        // if succeed
         self.cleanUpInputDatas()
     }
     
