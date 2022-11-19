@@ -61,6 +61,14 @@ struct SignUpView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(10)
                 }
+                .alert("", isPresented: $viewModel.isSignUpSucceed) {
+                    Button(action: viewModel.signUpAlertDismissed) {
+                        Text("확인")
+                            .foregroundColor(.accentColor)
+                    }
+                } message: {
+                    Text("회원가입이 완료되었습니다.")
+                }
                 
                 
                 Spacer()

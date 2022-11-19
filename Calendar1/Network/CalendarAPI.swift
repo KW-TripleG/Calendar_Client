@@ -26,18 +26,21 @@ enum CalendarError: Error {
 
 enum CalendarAPI {
   case login(id: String, password: String)
+  case join(id: String, password: String, name: String, email: String)
   
   var baseURL: String { "???" }
   
   var path: String {
     switch self {
     case .login: return "/login"
+    case .join: return "/join"
     }
   }
   
   var method: HTTPMethod {
     switch self {
     case .login: return .get
+    case .join: return .post
     }
   }
   
@@ -45,15 +48,22 @@ enum CalendarAPI {
     return nil
   }
   
-  var body: [String: Any]? {
-    switch self {
-    case .login(let id, let password):
-      return [
-        "id": id,
-        "password": password
-      ]
+    var body: [String: Any]? {
+        switch self {
+        case .login(let id, let password):
+            return [
+                "id": id,
+                "password": password
+            ]
+        case .join(let id, let password, let name, let email):
+            return [
+                "id": id,
+                "password": password,
+                "name": name,
+                "email": email,
+            ]
+        }
     }
-  }
 }
 
 extension CalendarAPI {
@@ -88,6 +98,16 @@ extension CalendarAPI {
         {
           "status" : 200,
           "message" : "로그인 성공"
+        }
+        """.utf8
+      )
+    case .join:
+      return Data(
+        """
+        {
+          "data" : "test",
+          "status" : 200,
+          "message" : "회원가입 성공"
         }
         """.utf8
       )
