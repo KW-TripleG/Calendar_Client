@@ -14,7 +14,7 @@ struct AuthTextFieldStyle: ViewModifier {
             .textInputAutocapitalization(.never)
             .disableAutocorrection(true)
             .padding()
-            .background(Color.backgroundColor)
+            .background(Color.textFieldColor)
             .cornerRadius(10)
     }
 }
