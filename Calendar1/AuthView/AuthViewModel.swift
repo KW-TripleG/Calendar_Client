@@ -72,8 +72,8 @@ extension AuthViewModel {
                     .join(
                         id: self.username,
                         password: self.passwordNew,
-                        name: name,
-                        email: email
+                        name: self.name,
+                        email: self.email
                     ))
               
                 if response.status == 200 {
