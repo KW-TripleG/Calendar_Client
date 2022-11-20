@@ -29,7 +29,11 @@ struct ScheduleDataItem: Codable {
 }
 
 extension ScheduleDataItem {
-	func asSchedule() -> Schedule {
-		Schedule(id: scheduleId, title: title, content: content, userID: userId, togetherID: togetherId)
+	func asScheduleWithDate() throws -> ScheduleWithDate {
+		ScheduleWithDate(
+			schedule: Schedule(id: scheduleId, title: title, content: content, userID: userId, togetherID: togetherId),
+			startDate: CalendarHelper.parseDateTime(startDate)!,
+			endDate: CalendarHelper.parseDateTime(endDate)!
+		)
 	}
 }

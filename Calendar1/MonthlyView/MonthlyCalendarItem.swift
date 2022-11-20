@@ -16,17 +16,15 @@ struct MonthlyCalendarItem: View {
     
     var body: some View {
         
-        let calendarHelper = CalendarHelper()
+        let todayDay = CalendarHelper.getDayOfMonth(dateHolder.date)
+        let daysInMonth = CalendarHelper.getDaysInMonth(month)
         
-        let todayDay = calendarHelper.getDayOfMonth(dateHolder.date)
-        let daysInMonth = calendarHelper.getDaysInMonth(month)
+        let weekends = CalendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
         
-        let weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
-        
-        let datesOfCurrentMonth = calendarHelper.getDatesOfMonth(dateHolder.date)
+        let datesOfCurrentMonth = CalendarHelper.getDatesOfMonth(dateHolder.date)
         let daysOfCuttentMonth = Array(1...daysInMonth).map {"\($0)"}
         let zipOfCurrentMonth = Array(zip(datesOfCurrentMonth, daysOfCuttentMonth))
-        let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
+        let firstWeekday = CalendarHelper.getFirstWeekdayOfMonth(month)
         
         let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
         

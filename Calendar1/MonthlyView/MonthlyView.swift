@@ -64,7 +64,7 @@ struct MonthlyView: View {
                             action: {},
                             label: {
                                 Image(systemName: "chevron.left")
-                                Text(CalendarHelper().getYearMonthStr(dateHolder.date))
+                                Text(CalendarHelper.getYearMonthStr(dateHolder.date))
                             }
                         )
                     },
