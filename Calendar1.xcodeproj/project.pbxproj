@@ -33,6 +33,7 @@
 		A897F5632885F45D00EFB47A /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A897F5622885F45C00EFB47A /* ColorExtention.swift */; };
 		B14641CE67781A84E6EC5BB6 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1464447594EB1EB37A2D61D /* ScheduleItem.swift */; };
 		B146479B6E19D48CFD7C0F78 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14647716912797D01E913A0 /* Schedule.swift */; };
+		B1464B1BFAACD6EC8D44F7C8 /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14642CE3FAAE0BE128AFE3C /* ScheduleResponse.swift */; };
 		EFBA379228E0ADCA009091BF /* HeightPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */; };
 		EFBA379528E0AE0A009091BF /* MonthlyCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */; };
 		EFDF2F3C29226E1E00B99D02 /* GlobalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF2F3B29226E1E00B99D02 /* GlobalRouter.swift */; };
@@ -86,6 +87,7 @@
 		A897F55D2885B86300EFB47A /* DailyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScheduleView.swift; sourceTree = "<group>"; };
 		A897F55F2885C6EC00EFB47A /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		A897F5622885F45C00EFB47A /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
+		B14642CE3FAAE0BE128AFE3C /* ScheduleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
 		B1464447594EB1EB37A2D61D /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
 		B14647716912797D01E913A0 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPreferenceKey.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				EFDF2F402922715700B99D02 /* Promise.swift */,
 				EFDF2F422922723100B99D02 /* LoginResponse.swift */,
 				A87AC2472929311D008CC48B /* JoinResponse.swift */,
+				B14642CE3FAAE0BE128AFE3C /* ScheduleResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				EFBA379528E0AE0A009091BF /* MonthlyCalendarViewModel.swift in Sources */,
 				B146479B6E19D48CFD7C0F78 /* Schedule.swift in Sources */,
 				EFDF2F412922715700B99D02 /* Promise.swift in Sources */,
+				B1464B1BFAACD6EC8D44F7C8 /* ScheduleResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

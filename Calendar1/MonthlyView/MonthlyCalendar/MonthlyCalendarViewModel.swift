@@ -20,6 +20,7 @@ struct HeightAnimation: Equatable {
 final class MonthlyCalendarModel: ObservableObject {
     @Published private(set) var heightAnimation: HeightAnimation = .init(height: nil, shouldAnimate: false)
     @Published private(set) var monthDatas: [MonthData] = []
+    @Published private(set) var schedules: [Schedule] = []
     
     private var heightCache: [Int: CGFloat?] = [:]
     private let calendarHelper = CalendarHelper()
@@ -33,6 +34,10 @@ final class MonthlyCalendarModel: ObservableObject {
         
         self.currentDate = currentDate
         self.monthDatas = monthDatas
+
+        Task {
+            try await fetchSchedules()
+        }
     }
 }
 
@@ -75,5 +80,12 @@ extension MonthlyCalendarModel {
             }
             self.monthDatas += appendedMonthDatas
         }
+    }
+}
+
+extension MonthlyCalendarModel {
+    private func fetchSchedules() async throws {
+        let response: ScheduleResponse = try await Promise.shared.request(.fetchSchedules)
+        schedules = response.data.map { element in element.asSchedule() }
     }
 }
