@@ -12,11 +12,11 @@ struct Calendar1App: App {
     var body: some Scene {
         WindowGroup {
             
-            let dateHolder = DateHolder()
+            let global = Global()
             let globalRouter = GlobalRouter()
             
             ContentView()
-                .environmentObject(dateHolder)
+                .environmentObject(global)
                 .environmentObject(globalRouter)
         }
     }

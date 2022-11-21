@@ -10,6 +10,7 @@ import SwiftUI
 struct MonthlyView: View {
     
     @EnvironmentObject var dateHolder: DateHolder
+    @EnvironmentObject var global: Global
     
     @State var scheduleViewToggle: Bool = true
     
@@ -30,27 +31,9 @@ struct MonthlyView: View {
                     }
 
                     MonthlyCalendar()
-
-                    ScrollView {
-                        DailyScheduleView(schedules: .constant([
-                            Schedule(id: 0, title: "asdf", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 1, title: "foo", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 2, title: "bar", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 3, title: "qaz", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 4, title: "qax", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 5, title: "lorem", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 6, title: "ipsum", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 7, title: "dolor", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 8, title: "sit", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 9, title: "amet", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 10, title: "abc", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 11, title: "def", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 12, title: "ghi", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 13, title: "jkl", content: nil, userID: "", togetherID: nil),
-                            Schedule(id: 14, title: "mno", content: nil, userID: "", togetherID: nil),
-                        ]))
-                            .background(Color.backgroundColor)
-                    }
+                    
+                    DailyScheduleView()
+                        .background(Color.backgroundColor)
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
@@ -64,7 +47,7 @@ struct MonthlyView: View {
                             action: {},
                             label: {
                                 Image(systemName: "chevron.left")
-                                Text(CalendarHelper().getYearMonthStr(dateHolder.selected))
+                                Text(CalendarHelper().getYearMonthStr(global.selectedDate))
                             }
                         )
                     },
@@ -97,16 +80,9 @@ struct MonthlyView: View {
 }
 
 struct MonthlyView_Previews: PreviewProvider {
-    
-    static let newDateComp = DateComponents(year: 2022, month: 7, day: 3)
-    static let newDate = Calendar.current.date(from: newDateComp)!
-
-    static let dateHolder = DateHolder(newDate)
-//    static let dateHolder = DateHolder()
-    
     static var previews: some View {
         MonthlyView()
-            .environmentObject(dateHolder)
+            .environmentObject(Global())
             
     }
 }

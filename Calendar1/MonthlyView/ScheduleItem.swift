@@ -6,7 +6,11 @@ import Foundation
 import SwiftUI
 
 struct ScheduleItem: View {
-	@Binding var schedule: Schedule
+	let schedule: Schedule
+    
+    init(schedule: Schedule) {
+        self.schedule = schedule
+    }
 
 	var body: some View {
 		HStack(spacing: 8) {

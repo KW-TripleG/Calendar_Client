@@ -12,6 +12,7 @@ struct MonthlyCalendar: View {
     @State private var calendarHeight: CGFloat?
     @StateObject private var viewModel = MonthlyCalendarModel()
     
+    // TODO: 다른 월로 스크롤하여 넘어갈 경우 Selection도 넘어간 월의 1일로 설정되도록 하는 기능 구현 (시간 되면 추후 진행)
     var body: some View {
         VStack {
             MonthlyCalendarTitle()
