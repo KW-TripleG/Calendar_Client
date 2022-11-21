@@ -10,6 +10,8 @@
 		A80306262887CFC700CEDD68 /* MonthlyCalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80306252887CFC700CEDD68 /* MonthlyCalendarItem.swift */; };
 		A803BE68288695BC00517485 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803BE67288695BC00517485 /* CalendarHelper.swift */; };
 		A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A803BE6B28869C9E00517485 /* DateHolder.swift */; };
+		A87AC2482929311D008CC48B /* JoinResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AC2472929311D008CC48B /* JoinResponse.swift */; };
+		A87AC24A29293DA9008CC48B /* FieldExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AC24929293DA9008CC48B /* FieldExtention.swift */; };
 		A87F5ECA28B3B8760019F99B /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5EC928B3B8760019F99B /* MonthlyView.swift */; };
 		A87F5ECC28B3B9F60019F99B /* MonthlyCalendarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECB28B3B9F60019F99B /* MonthlyCalendarTitle.swift */; };
 		A87F5ECE28B3BD040019F99B /* MonthlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87F5ECD28B3BD040019F99B /* MonthlyCalendar.swift */; };
@@ -61,6 +63,8 @@
 		A80306252887CFC700CEDD68 /* MonthlyCalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendarItem.swift; sourceTree = "<group>"; };
 		A803BE67288695BC00517485 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		A803BE6B28869C9E00517485 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
+		A87AC2472929311D008CC48B /* JoinResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinResponse.swift; sourceTree = "<group>"; };
+		A87AC24929293DA9008CC48B /* FieldExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldExtention.swift; sourceTree = "<group>"; };
 		A87F5EC928B3B8760019F99B /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		A87F5ECB28B3B9F60019F99B /* MonthlyCalendarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendarTitle.swift; sourceTree = "<group>"; };
 		A87F5ECD28B3BD040019F99B /* MonthlyCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendar.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			children = (
 				A897F5622885F45C00EFB47A /* ColorExtention.swift */,
 				A87F5ECF28B3BDF10019F99B /* ViewExtention.swift */,
+				A87AC24929293DA9008CC48B /* FieldExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				EFDF2F3D2922713E00B99D02 /* CalendarAPI.swift */,
 				EFDF2F402922715700B99D02 /* Promise.swift */,
 				EFDF2F422922723100B99D02 /* LoginResponse.swift */,
+				A87AC2472929311D008CC48B /* JoinResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				A897F52E2885948900EFB47A /* ContentView.swift in Sources */,
 				A87F5ECA28B3B8760019F99B /* MonthlyView.swift in Sources */,
 				A897F52C2885948900EFB47A /* Calendar1App.swift in Sources */,
+				A87AC2482929311D008CC48B /* JoinResponse.swift in Sources */,
 				A87F5ED028B3BDF10019F99B /* ViewExtention.swift in Sources */,
 				EFDF2F3C29226E1E00B99D02 /* GlobalRouter.swift in Sources */,
 				A882B96528DEC9D100D0EF83 /* SignInView.swift in Sources */,
@@ -408,6 +415,7 @@
 				A87F5ECC28B3B9F60019F99B /* MonthlyCalendarTitle.swift in Sources */,
 				A88F840A28EAFA3900B68CBF /* AuthViewModel.swift in Sources */,
 				B14641CE67781A84E6EC5BB6 /* ScheduleItem.swift in Sources */,
+				A87AC24A29293DA9008CC48B /* FieldExtention.swift in Sources */,
 				EFBA379528E0AE0A009091BF /* MonthlyCalendarViewModel.swift in Sources */,
 				B146479B6E19D48CFD7C0F78 /* Schedule.swift in Sources */,
 				EFDF2F412922715700B99D02 /* Promise.swift in Sources */,

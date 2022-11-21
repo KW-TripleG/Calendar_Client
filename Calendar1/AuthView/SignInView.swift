@@ -31,13 +31,13 @@ struct SignInView: View {
                     Spacer()
                 }
                 
-                TextField("Username", text: $viewModel.input_username)
+                TextField("Username", text: $viewModel.username)
+                    .authViewFieldStyle()
                     .textContentType(.username)
-                    .modifier(AuthTextFieldStyle())
-                SecureField("Password", text: $viewModel.input_password)
+                SecureField("Password", text: $viewModel.password)
+                    .authViewFieldStyle()
                     .textContentType(.password)
                     .privacySensitive()
-                    .modifier(AuthTextFieldStyle())
                 
                 Spacer()
                     .frame(height: 15)

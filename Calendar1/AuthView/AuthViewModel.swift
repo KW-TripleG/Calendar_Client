@@ -7,18 +7,22 @@
 
 import SwiftUI
 
+
+// MARK: - AuthViewModel
 @MainActor
 final class AuthViewModel: ObservableObject {
     private var globalRouter: GlobalRouter
   
     @Published private(set) var willSignIn: Bool
     
-    @Published var input_username: String = ""
-    @Published var input_password: String = ""
-    @Published var input_password_new: String = ""
-    @Published var input_password_conf: String = ""
-    @Published var input_name: String = ""
-    @Published var input_email: String = ""
+    @Published var username: String = ""
+    @Published var password: String = ""
+    @Published var passwordNew: String = ""
+    @Published var passwordConf: String = ""
+    @Published var name: String = ""
+    @Published var email: String = ""
+    
+    @Published var isSignUpSucceed: Bool = false
     
     
     init(globalRouter: GlobalRouter) {
@@ -28,17 +32,21 @@ final class AuthViewModel: ObservableObject {
 }
 
 
+// MARK: - Actions
 extension AuthViewModel {
     func toggleSignIn() {
         self.willSignIn.toggle()
     }
-}
 
-extension AuthViewModel {
+    
     func signInButtonClicked() {
         Task {
             do {
-                let response: LoginResponse = try await Promise.shared.request(.login(id: self.input_username, password: self.input_password))
+                let response: LoginResponse = try await Promise.shared.request(
+                    .login(
+                        id: self.username,
+                        password: self.password
+                    ))
               
                 if response.status == 200 {
                   self.globalRouter.screen = .calendar
@@ -51,41 +59,54 @@ extension AuthViewModel {
         self.cleanUpInputDatas()
     }
     
+    
     func signUpButtonClicked() {
-        // ...
-        
+        // TODO: 예외 처리로 validate하도록 변경
         guard (validateUserData()) else {
             return
         }
         
-        // if succeed
+        Task {
+            do {
+                let response: JoinResponse = try await Promise.shared.request(
+                    .join(
+                        id: self.username,
+                        password: self.passwordNew,
+                        name: self.name,
+                        email: self.email
+                    ))
+              
+                if response.status == 200 {
+                  self.isSignUpSucceed = true
+                }
+                
+            } catch let error {
+                print(error)
+            }
+        }
+    }
+    
+    
+    func signUpAlertDismissed() {
         self.cleanUpInputDatas()
         self.willSignIn = true
     }
 }
 
+
+// MARK: - Private
 extension AuthViewModel {
     private func validateUserData() -> Bool {
-        guard (input_password_new == input_password_conf) else { return false }
+        guard (passwordNew == passwordConf) else { return false }
         
         return true
     }
-    
-    private func requestSignIn() {
-        
-    }
-    
-    private func requestSignUp() {
-        
-    }
-}
 
-extension AuthViewModel {
     private func cleanUpInputDatas() {
-        self.input_password = ""
-        self.input_password_new = ""
-        self.input_password_conf = ""
-        self.input_name = ""
-        self.input_email = ""
+        self.password = ""
+        self.passwordNew = ""
+        self.passwordConf = ""
+        self.name = ""
+        self.email = ""
     }
 }
