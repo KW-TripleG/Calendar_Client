@@ -7,29 +7,61 @@
 
 import SwiftUI
 
+// TODO: MonthlyCalendarItem도 ViewModel과 함께 리팩토링 (이름 변경 및 코드 정리도 필요)
 struct MonthlyCalendarItem: View {
     
     @EnvironmentObject var dateHolder: DateHolder
     
+    let calendarHelper: CalendarHelper
+    
     let month: Date
+    let currentDate: Date
+    let isCurrentMonth: Bool
+    
+    let todayDay: Int
+    let daysInMonth: Int
+    let weekends: [String]
+    let datesOfMonth: [Date]
+    let daysOfMonth: [String]
+    let datesAndDaysOfMonth: [(Date, String)]
+    let firstWeekday: Int
+    let cols: [GridItem]
+    
+    init(month: Date) {
+        self.calendarHelper = CalendarHelper()
+        
+        self.month = month
+        self.currentDate = Date()
+        self.isCurrentMonth = calendarHelper.isCurrentMonth(month)
+
+        self.todayDay = calendarHelper.getDayOfMonth(currentDate)
+        self.daysInMonth = calendarHelper.getDaysInMonth(month)
+        self.weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
+        self.datesOfMonth = calendarHelper.getDatesOfMonth(month)
+        self.daysOfMonth = Array(1...daysInMonth).map {"\($0)"}
+        self.datesAndDaysOfMonth = Array(zip(datesOfMonth, daysOfMonth))
+        self.firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
+
+        self.cols = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
+    }
     
     
     var body: some View {
+//        let calendarHelper = CalendarHelper()
+        let isSelectedMonth = calendarHelper.isSameMonth(dateHolder.selected, withDate: month)
+        let selectedDay = calendarHelper.getDayOfMonth(dateHolder.selected)
+//
+//        let isCurrentMonth = calendarHelper.isCurrentMonth(month)
+//        let todayDay = calendarHelper.getDayOfMonth(currentDate)
         
-        let calendarHelper = CalendarHelper()
-        
-        let todayDay = calendarHelper.getDayOfMonth(dateHolder.date)
-        let daysInMonth = calendarHelper.getDaysInMonth(month)
-        
-        let weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
-        
-        let datesOfCurrentMonth = calendarHelper.getDatesOfMonth(dateHolder.date)
-        let daysOfCuttentMonth = Array(1...daysInMonth).map {"\($0)"}
-        let zipOfCurrentMonth = Array(zip(datesOfCurrentMonth, daysOfCuttentMonth))
-        let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
-        
-        let cols: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
-        
+//        let daysInMonth = calendarHelper.getDaysInMonth(month)
+//        let weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
+//        let datesOfMonth = calendarHelper.getDatesOfMonth(month)
+//        let daysOfMonth = Array(1...daysInMonth).map {"\($0)"}
+//        let datesAndDaysOfMonth = Array(zip(datesOfMonth, daysOfMonth))
+//        let firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
+//
+//        let cols = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
 
         LazyVGrid(columns: cols, spacing: 0) {
             
@@ -55,23 +87,43 @@ struct MonthlyCalendarItem: View {
             }
             
             // real-value
-            ForEach(zipOfCurrentMonth, id: \.1) { date, day in
+            ForEach(datesAndDaysOfMonth, id: \.1) { date, day in
                 VStack {
                     Divider()
                     
+                    // TODO: 이쪽 처리도 ViewModel과 함께 재구조화할 필요 있음
                     Text(day)
-                        .foregroundColor(day == String(todayDay) ? Color.white : weekends.contains(day) ? Color.gray : nil)
+                        .foregroundColor(
+                            // TODO: Date 객체를 가지고 선택/오늘 여부 확인하도록
+                            (isSelectedMonth && (day == String(selectedDay)))
+                            ? (isCurrentMonth && (day == String(todayDay)))
+                                ? Color.white
+                                : Color.backgroundColor
+                            : (isCurrentMonth && (day == String(todayDay)))
+                                ? Color.accentColor
+                                : weekends.contains(day)
+                                    ? Color.gray
+                                    : nil
+                        )
                         .background(
                             Circle()
-                                .foregroundColor(day == String(todayDay) ? Color.accentColor : Color.clear)
+                                .foregroundColor(
+                                    (isSelectedMonth && (day == String(selectedDay)))
+                                    ? (isCurrentMonth && (day == String(todayDay)))
+                                        ? Color.accentColor
+                                        : nil
+                                    : Color.clear
+                                )
                                 .frame(width: 30, height: 30)
                         )
                         .padding(2)
+                        
+                        
                     
                     HStack {
+                        // TODO: 실제 스케줄 데이터 연동해 그려주도록 구현 (뷰모델 분리 후 작업)
                         Circle()
                             .foregroundColor([17].contains(Int(day)!) ? Color.gray : Color.clear)
-//                                .foregroundColor(Color.clear)
                             .frame(width: 6, height: 6)
                         
                     }
@@ -79,6 +131,11 @@ struct MonthlyCalendarItem: View {
                     Spacer().frame(height: 10)
                     
                 }
+                .onTapGesture {
+                    // TODO: 추후 ViewModel로 분리 예정
+                    dateHolder.selected = date
+                }
+
             }
         }.background(Color.gray.opacity(0.05))
     }
@@ -93,8 +150,7 @@ struct MonthlyCalendarItem_Previews: PreviewProvider {
 //    static let dateHolder = DateHolder()
 
     static var previews: some View {
-        MonthlyCalendarItem(month: dateHolder.date)
+        MonthlyCalendarItem(month: dateHolder.current)
             .environmentObject(dateHolder)
-            .previewDevice("iPhone 13 mini")
     }
 }

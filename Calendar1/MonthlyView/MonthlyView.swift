@@ -64,7 +64,7 @@ struct MonthlyView: View {
                             action: {},
                             label: {
                                 Image(systemName: "chevron.left")
-                                Text(CalendarHelper().getYearMonthStr(dateHolder.date))
+                                Text(CalendarHelper().getYearMonthStr(dateHolder.selected))
                             }
                         )
                     },
@@ -107,7 +107,6 @@ struct MonthlyView_Previews: PreviewProvider {
     static var previews: some View {
         MonthlyView()
             .environmentObject(dateHolder)
-            .previewDevice("iPhone 13 mini")
             
     }
 }

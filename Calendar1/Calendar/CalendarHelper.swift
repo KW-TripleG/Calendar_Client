@@ -9,8 +9,14 @@ import Foundation
 
 class CalendarHelper {
     
-    let calendar = Calendar.current
-    let dateFormat = DateFormatter()
+    var calendar: Calendar
+    let dateFormat: DateFormatter
+    
+    init() {
+        self.calendar = Calendar.current
+        self.dateFormat = DateFormatter()
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+    }
     
     func getYearMonthStr(_ date: Date) -> String {
         dateFormat.dateFormat = "yyyy년 M월"
@@ -58,7 +64,7 @@ class CalendarHelper {
         let monthDate = calendar.date(from: monthComp)!
         let range = calendar.range(of: .day, in: .month, for: date)!
         let dates = range.compactMap { day -> Date in
-            return calendar.date(byAdding: .day, value: day, to: monthDate)!
+            return calendar.date(byAdding: .day, value: day - 1, to: monthDate)!
         }
         
         return dates
@@ -68,4 +74,14 @@ class CalendarHelper {
         return calendar.date(byAdding: .month, value: value, to: to)!
     }
     
+    func isSameMonth(_ month: Date, withDate: Date) -> Bool {
+        let isSame = (calendar.isDate(month, equalTo: withDate, toGranularity: .year)
+                     && calendar.isDate(month, equalTo: withDate, toGranularity: .month))
+        return isSame
+    }
+    
+    func isCurrentMonth(_ month: Date) -> Bool {
+        let currentDate = Date()
+        return isSameMonth(month, withDate: currentDate)
+    }
 }

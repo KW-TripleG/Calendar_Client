@@ -9,15 +9,18 @@ import Foundation
 
 class DateHolder: ObservableObject {
     
-    @Published var date: Date
+    @Published var current: Date
+    @Published var selected: Date
     
     // init to current date
     init() {
-        self.date = Date()
+        self.current = Date()
+        self.selected = Date()
     }
     
-    // init to custom date
+    // init to custom date (for test)
     init(_ date: Date) {
-        self.date = date
+        self.current = date
+        self.selected = date
     }
 }
