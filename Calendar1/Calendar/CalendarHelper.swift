@@ -9,8 +9,8 @@ import Foundation
 
 class CalendarHelper {
     
-    var calendar: Calendar
-    let dateFormat: DateFormatter
+    private var calendar: Calendar
+    private let dateFormat: DateFormatter
     
     init() {
         self.calendar = Calendar.current
@@ -23,9 +23,9 @@ class CalendarHelper {
         return dateFormat.string(from: date)
     }
     
-    func getDate(year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?) -> Date {
+    func getDate(year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?) -> Date? {
         let components = DateComponents(year: year, month: month, day: day, hour: hour, minute: minute)
-        let date = calendar.date(from: components)!
+        let date = calendar.date(from: components)
         return date
     }
     

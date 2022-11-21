@@ -21,10 +21,10 @@ final class Global: ObservableObject {
         
         if useSampleSchedules {
             let calendarHelper = CalendarHelper()
-            let date1: Date = calendarHelper.getDate(year: 2022, month: 11, day: 21, hour: 12, minute: 00)
-            let date2: Date = calendarHelper.getDate(year: 2022, month: 11, day: 21, hour: 14, minute: 30)
-            let date3: Date = calendarHelper.getDate(year: 2022, month: 12, day: 10, hour: 08, minute: 00)
-            let date4: Date = calendarHelper.getDate(year: 2022, month: 12, day: 10, hour: 10, minute: 15)
+            let date1: Date = calendarHelper.getDate(year: 2022, month: 11, day: 21, hour: 12, minute: 00)!
+            let date2: Date = calendarHelper.getDate(year: 2022, month: 11, day: 21, hour: 14, minute: 30)!
+            let date3: Date = calendarHelper.getDate(year: 2022, month: 12, day: 10, hour: 08, minute: 00)!
+            let date4: Date = calendarHelper.getDate(year: 2022, month: 12, day: 10, hour: 10, minute: 15)!
             
             self.schedules = [
                 Schedule(id: 0, title: "asdf", content: nil, startDate: date1, endDate: date2, userID: "", togetherID: nil),
