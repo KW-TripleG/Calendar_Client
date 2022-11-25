@@ -13,8 +13,6 @@ struct MonthlyCalendarItem: View {
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var global: Global
     
-    let calendarHelper: CalendarHelper
-    
     let month: Date
     let currentDate: Date
     let isCurrentMonth: Bool
@@ -29,27 +27,25 @@ struct MonthlyCalendarItem: View {
     let cols: [GridItem]
     
     init(month: Date) {
-        self.calendarHelper = CalendarHelper()
-        
         self.month = month
         self.currentDate = Date()
-        self.isCurrentMonth = calendarHelper.isCurrentMonth(month)
+        self.isCurrentMonth = CalendarHelper.isCurrentMonth(month)
 
-        self.todayDay = calendarHelper.getDay(currentDate)
-        self.daysInMonth = calendarHelper.getNumOfDaysInMonth(month)
-        self.weekends = calendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
-        self.datesOfMonth = calendarHelper.getDatesOfMonth(month)
+        self.todayDay = CalendarHelper.getDay(currentDate)
+        self.daysInMonth = CalendarHelper.getNumOfDaysInMonth(month)
+        self.weekends = CalendarHelper.getWeekendDaysInMonth(month).map {"\($0)"}
+        self.datesOfMonth = CalendarHelper.getDatesOfMonth(month)
         self.daysOfMonth = Array(1...daysInMonth).map {"\($0)"}
         self.datesAndDaysOfMonth = Array(zip(datesOfMonth, daysOfMonth))
-        self.firstWeekday = calendarHelper.getFirstWeekdayOfMonth(month)
+        self.firstWeekday = CalendarHelper.getFirstWeekdayOfMonth(month)
 
         self.cols = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
     }
     
     
     var body: some View {
-        let isSelectedMonth = calendarHelper.isSameYearMonth(global.selectedDate, withDate: month)
-        let selectedDay = calendarHelper.getDay(global.selectedDate)
+        let isSelectedMonth = CalendarHelper.isSameYearMonth(global.selectedDate, withDate: month)
+        let selectedDay = CalendarHelper.getDay(global.selectedDate)
 
         LazyVGrid(columns: cols, spacing: 0) {
             
