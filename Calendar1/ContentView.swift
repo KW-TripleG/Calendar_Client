@@ -22,11 +22,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
-    static let dateHolder = DateHolder()
-    
     static var previews: some View {
         ContentView()
-            .environmentObject(dateHolder)
+            .environmentObject(GlobalRouter())
     }
 }

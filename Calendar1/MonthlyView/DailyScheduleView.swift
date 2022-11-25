@@ -8,21 +8,26 @@
 import SwiftUI
 
 struct DailyScheduleView: View {
-    @Binding var schedules: Array<Schedule>
+//    @Binding var schedules: Array<Schedule>
+    @EnvironmentObject var global: Global
 
     var body: some View {
+        let selectedSchedules = global.schedules.getSchedules(byYMDDate: global.selectedDate)
+        
         VStack {
             Divider()
 
-            if (schedules.count == 0) {
+            if (selectedSchedules.count == 0) {
                 Spacer()
 
                 Text("이벤트 없음")
                         .foregroundColor(Color.gray)
                         .font(.system(size: 22))
             } else {
-                ForEach($schedules, id: \.id) { element in
-                    ScheduleItem(schedule: element).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                ScrollView {
+                    ForEach(selectedSchedules, id: \.id) { element in
+                        ScheduleItem(schedule: element).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    }
                 }
             }
 
@@ -34,6 +39,7 @@ struct DailyScheduleView: View {
 
 struct DailyScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyScheduleView(schedules: .constant([]))
+        DailyScheduleView()
+            .environmentObject(Global())
     }
 }
