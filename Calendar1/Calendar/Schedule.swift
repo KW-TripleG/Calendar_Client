@@ -29,9 +29,8 @@ typealias Schedules = Array<Schedule>
 
 extension Schedules {
     func getSchedules(byYMDDate date: Date) -> Schedules {
-        let calendarHelper = CalendarHelper()
         let schedules = self.filter { schedule -> Bool in
-            calendarHelper.isDateInRange(date, from: schedule.startDate, to: schedule.endDate)
+            CalendarHelper.isDateInRange(date, from: schedule.startDate, to: schedule.endDate)
         }
         
         return schedules
