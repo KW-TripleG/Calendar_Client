@@ -13,9 +13,8 @@ class CalendarHelper {
     private let dateFormat: DateFormatter
     
     init() {
-        self.calendar = Calendar.current
+        self.calendar = Calendar.currentKST
         self.dateFormat = DateFormatter()
-        calendar.timeZone = TimeZone(abbreviation: "KST")!
     }
     
     func getYearMonthStr(_ date: Date) -> String {
