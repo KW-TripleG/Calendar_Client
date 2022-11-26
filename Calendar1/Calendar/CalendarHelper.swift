@@ -14,6 +14,10 @@ class CalendarHelper {
     
     private init() { }
     
+    static func getDateWithOutTime(_ date: Date) -> String {
+      dateFormat.dateFormat = "yyyy년 M월"
+      return dateFormat.string(from: date)
+    }
     
     static func getYearMonthStr(_ date: Date) -> String {
         dateFormat.dateFormat = "yyyy년 M월"

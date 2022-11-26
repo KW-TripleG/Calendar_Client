@@ -21,7 +21,9 @@ struct AddScheduleView: View {
   @State private var isAlertPresented: Bool = false
 
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject var global: Global
 
+  
   var body: some View {
     NavigationView {
       Form {
@@ -65,6 +67,7 @@ struct AddScheduleView: View {
         )
         
         if response.status == "OK" {
+          self.global.fetchSchedules()
           self.dismiss()
         }
       } catch let error {
