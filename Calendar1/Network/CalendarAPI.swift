@@ -31,6 +31,7 @@ enum CalendarAPI {
   case join(id: String, password: String, name: String, email: String)
   case registerSchedule(title: String, content: String, startDate: Date, endDate: Date)
   case getSchedule
+  case updateSchedule(id: Int, title: String, content: String, startDate: Date, endDate: Date)
   
   var baseURL: String { "http://3.39.197.209:8080" }
   
@@ -40,6 +41,7 @@ enum CalendarAPI {
     case .join: return "/join"
     case .registerSchedule: return "/schedule"
     case .getSchedule: return "/schedule"
+    case .updateSchedule: return "/update-schedule"
     }
   }
   
@@ -49,6 +51,7 @@ enum CalendarAPI {
     case .join: return .post
     case .registerSchedule: return .put
     case .getSchedule: return .get
+    case .updateSchedule: return .put
     }
   }
   
@@ -77,6 +80,19 @@ enum CalendarAPI {
       dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
       
       return [
+        "title": title,
+        "content": content,
+        "startDate": dateFormatter.string(from: startDate),
+        "endDate": dateFormatter.string(from: endDate),
+        "duration": "0"
+      ]
+    
+    case .updateSchedule(let id, let title, let content, let startDate, let endDate):
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+      
+      return [
+        "scheduleId": id,
         "title": title,
         "content": content,
         "startDate": dateFormatter.string(from: startDate),

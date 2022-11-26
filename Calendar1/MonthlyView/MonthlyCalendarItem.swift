@@ -104,7 +104,7 @@ struct MonthlyCalendarItem: View {
                         
                     HStack {
                         Circle()
-                        .foregroundColor(self.global.shouldShowCircel(date) ? Color.gray : Color.clear)
+                        .foregroundColor(self.global.shouldShowCircle(date) ? Color.gray : Color.clear)
                             .frame(width: 6, height: 6)
                         
                     }
@@ -112,6 +112,7 @@ struct MonthlyCalendarItem: View {
                     Spacer().frame(height: 10)
                     
                 }
+                .contentShape(Rectangle())
                 .onTapGesture {
                     // TODO: 추후 ViewModel로 분리 예정
                     global.selectedDate = date

@@ -80,7 +80,15 @@ class CalendarHelper {
     static func getMonthAdding(_ value: Int, to: Date) -> Date {
         return calendar.date(byAdding: .month, value: value, to: to)!
     }
-    
+  
+    static func getDayAdding(_ value: Int, to: Date) -> Date {
+        return calendar.date(byAdding: .day, value: value, to: to)!
+    }
+  
+    static func getMinAdding(_ value: Int, to: Date) -> Date {
+        return calendar.date(byAdding: .minute, value: value, to: to)!
+    }
+      
     static func isSameYearMonth(_ month: Date, withDate: Date) -> Bool {
         let isSame = (calendar.isDate(month, equalTo: withDate, toGranularity: .year)
                      && calendar.isDate(month, equalTo: withDate, toGranularity: .month))

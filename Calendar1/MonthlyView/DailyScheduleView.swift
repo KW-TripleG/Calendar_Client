@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DailyScheduleView: View {
-//    @Binding var schedules: Array<Schedule>
     @EnvironmentObject var global: Global
+    @State private var editSchedule: Schedule?
 
     var body: some View {
         let selectedSchedules = global.schedules.getSchedules(byYMDDate: global.selectedDate)
@@ -27,12 +27,19 @@ struct DailyScheduleView: View {
                 ScrollView {
                     ForEach(selectedSchedules, id: \.id) { element in
                         ScheduleItem(schedule: element).frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                          self.editSchedule = element
+                        }
                     }
                 }
             }
 
             Spacer()
             Divider()
+        }
+        .sheet(item: $editSchedule) { schedule in
+          EditScheduleView(schedule: schedule)
         }
     }
 }
