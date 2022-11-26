@@ -32,7 +32,8 @@ enum CalendarAPI {
   case registerSchedule(title: String, content: String, startDate: Date, endDate: Date)
   case getSchedule
   case updateSchedule(id: Int, title: String, content: String, startDate: Date, endDate: Date)
-  
+  case getMe
+
   var baseURL: String { "http://3.39.197.209:8080" }
   
   var path: String {
@@ -42,6 +43,7 @@ enum CalendarAPI {
     case .registerSchedule: return "/schedule"
     case .getSchedule: return "/schedule"
     case .updateSchedule: return "/update-schedule"
+    case .getMe: return "/user/me"
     }
   }
   
@@ -52,6 +54,7 @@ enum CalendarAPI {
     case .registerSchedule: return .put
     case .getSchedule: return .get
     case .updateSchedule: return .put
+    case .getMe: return .get
     }
   }
   
@@ -63,6 +66,7 @@ enum CalendarAPI {
     switch self {
     case .login(let id, let password):
       return [
+        "id": id,
         "id": id,
         "password": password
       ]
@@ -154,6 +158,21 @@ extension CalendarAPI {
           "message" : "회원가입 성공"
         }
         """.utf8
+      )
+
+    case .getMe:
+      return Data(
+          """
+          {
+            "data": {
+              "id": "test",
+              "email": "test@example.com",
+              "nickName": "Test"
+            },
+            "status": 200,
+            "message": "유저"
+          }
+          """.utf8
       )
       
     default: return Data()

@@ -21,7 +21,7 @@ struct BottomControlView: View {
             Button("초대") {}
         }.padding()
         .sheet(isPresented: $isPresentedSetting) {
-          SettingView()
+          SettingView(.init())
         }
     }
 }
