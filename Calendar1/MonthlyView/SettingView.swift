@@ -24,13 +24,14 @@ struct SettingView: View {
           let user = viewModel.user
 
           if let user {
-            VStack {
+            VStack(alignment: .leading) {
               if let nickName = user.nickName {
                 Text(nickName).font(.title3)
-                Text(user.email)
               } else {
-                Text(user.email)
+                Text(user.id)
               }
+
+              Text(user.email).foregroundColor(.secondary)
             }
           } else {
             ProgressView()
