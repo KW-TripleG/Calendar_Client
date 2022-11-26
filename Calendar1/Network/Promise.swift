@@ -10,7 +10,7 @@ import Foundation
 final class Promise {
   static let shared = Promise()
   
-  private let isUseMock: Bool = true
+  private let isUseMock: Bool = false
   
   private init() { }
   
@@ -23,6 +23,8 @@ final class Promise {
       let (data, _) = try await URLSession.shared.data(for: calendarAPI.generateURLRequest())
       responseData = data
     }
+    
+    print("Response -> ", String(data: responseData, encoding: .utf8) ?? "")
 
     return try JSONDecoder().decode(Model.self, from: responseData)
   }

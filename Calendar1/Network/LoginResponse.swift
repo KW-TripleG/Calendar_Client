@@ -8,11 +8,13 @@
 import Foundation
 
 struct LoginResponse: Codable {
-  let status: Int
+  let status: String
   let message: String
+  let jwt: String?
   
   enum CodingKeys: String, CodingKey {
     case status
     case message
+    case jwt = "data"
   }
 }

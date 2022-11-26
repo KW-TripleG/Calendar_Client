@@ -8,10 +8,11 @@
 import Foundation
 
 enum Screen {
-  case auth
+  case signIn
+  case signUp
   case calendar
 }
 
 final class GlobalRouter: ObservableObject {
-  @Published var screen: Screen = .auth
+  @Published var screen: Screen = .signIn
 }

@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct SignInView: View {
-    @ObservedObject var viewModel: AuthViewModel
+    @ObservedObject var viewModel: SignInViewModel
     
-    init(_ viewModel: AuthViewModel) {
+    init(_ viewModel: SignInViewModel) {
         self.viewModel = viewModel
     }
     
@@ -31,7 +31,7 @@ struct SignInView: View {
                     Spacer()
                 }
                 
-                TextField("Username", text: $viewModel.username)
+                TextField("ID", text: $viewModel.id)
                     .authViewFieldStyle()
                     .textContentType(.username)
                 SecureField("Password", text: $viewModel.password)
@@ -42,7 +42,7 @@ struct SignInView: View {
                 Spacer()
                     .frame(height: 15)
                 
-                Button(action: viewModel.signInButtonClicked) {
+                Button(action: viewModel.signInButtonTapped) {
                     Text("Sign In")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 10)
@@ -54,7 +54,7 @@ struct SignInView: View {
                 
                 Spacer()
                 
-                Button(action: viewModel.toggleSignIn) {
+                Button(action: viewModel.signUpButtonTapped) {
                     Text("Sign Up")
                         .foregroundColor(Color.accentColor)
                         .padding()
@@ -62,15 +62,10 @@ struct SignInView: View {
                 
             } // VStack
             .padding(EdgeInsets.init(top: 35, leading: 15, bottom: 0, trailing: 15))
-            
-        } // ZStack
-    }
-}
-
-
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-      let globalRouter = GlobalRouter()
-      AuthView(viewModel: .init(globalRouter: globalRouter))
+            .alert(self.viewModel.alertMessage, isPresented: self.$viewModel.isShowingAlert) {
+              Button("확인", role: .cancel) { }
+                .foregroundColor(Color.accentColor)
+            }
+        }
     }
 }

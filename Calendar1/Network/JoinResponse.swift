@@ -8,13 +8,13 @@
 import Foundation
 
 struct JoinResponse: Codable {
-    let data: String
-    let status: Int
-    let message: String
-    
-    enum CodingKeys: String, CodingKey {
-        case data
-        case status
-        case message
-    }
+  let status: String
+  let message: String
+  let jwt: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case status
+    case message
+    case jwt = "data"
+  }
 }

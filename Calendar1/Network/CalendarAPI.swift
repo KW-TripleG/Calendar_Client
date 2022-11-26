@@ -28,7 +28,7 @@ enum CalendarAPI {
   case login(id: String, password: String)
   case join(id: String, password: String, name: String, email: String)
   
-  var baseURL: String { "???" }
+  var baseURL: String { "http://3.39.197.209:8080" }
   
   var path: String {
     switch self {
@@ -39,7 +39,7 @@ enum CalendarAPI {
   
   var method: HTTPMethod {
     switch self {
-    case .login: return .get
+    case .login: return .post
     case .join: return .post
     }
   }
@@ -48,22 +48,22 @@ enum CalendarAPI {
     return nil
   }
   
-    var body: [String: Any]? {
-        switch self {
-        case .login(let id, let password):
-            return [
-                "id": id,
-                "password": password
-            ]
-        case .join(let id, let password, let name, let email):
-            return [
-                "id": id,
-                "password": password,
-                "name": name,
-                "email": email,
-            ]
-        }
+  var body: [String: Any]? {
+    switch self {
+    case .login(let id, let password):
+      return [
+        "id": id,
+        "password": password
+      ]
+    case .join(let id, let password, let name, let email):
+      return [
+        "id": id,
+        "password": password,
+        "name": name,
+        "email": email,
+      ]
     }
+  }
 }
 
 extension CalendarAPI {
@@ -80,11 +80,12 @@ extension CalendarAPI {
     
     var request = URLRequest(url: url)
     request.httpMethod = self.method.rawValue
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     if let body  {
       request.httpBody = try? JSONSerialization.data(withJSONObject: body)
     }
-
+    
     return request
   }
 }
