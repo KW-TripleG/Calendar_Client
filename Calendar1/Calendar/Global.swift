@@ -28,6 +28,21 @@ final class Global: ObservableObject {
     self.schedules = schedules
   }
   
+  func getDates() -> [(Date, Date)] {
+    return self.schedules
+      .map {
+        ($0.startDate, $0.endDate)
+      }
+  }
+  
+  func shouldShowCircel(_ date: Date) -> Bool {
+    let target = self.getDateWithOutTime(date)
+    
+    return self.getDates().reduce(false, { result, value in
+      return result || ( self.getDateWithOutTime(value.0) <= target && self.getDateWithOutTime(value.1) >= target )
+    })
+  }
+  
   func fetchSchedules() {
     Task {
       do {
@@ -41,6 +56,14 @@ final class Global: ObservableObject {
         print(error)
       }
     }
+  }
+  
+  private func getDateWithOutTime(_ date: Date) -> Date {
+    guard let parsedDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: date)) else {
+      fatalError("Failed to strip time from Date object")
+    }
+    
+    return parsedDate
   }
 }
 

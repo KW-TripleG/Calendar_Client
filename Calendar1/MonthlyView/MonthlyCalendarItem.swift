@@ -102,12 +102,9 @@ struct MonthlyCalendarItem: View {
                         )
                         .padding(2)
                         
-                        
-                    
                     HStack {
-                        // TODO: 실제 스케줄 데이터 연동해 그려주도록 구현 (뷰모델 분리 후 작업)
                         Circle()
-                            .foregroundColor([17].contains(Int(day)!) ? Color.gray : Color.clear)
+                        .foregroundColor(self.global.shouldShowCircel(date) ? Color.gray : Color.clear)
                             .frame(width: 6, height: 6)
                         
                     }
@@ -123,7 +120,6 @@ struct MonthlyCalendarItem: View {
             }
         }.background(Color.gray.opacity(0.05))
     }
-
 }
 
 struct MonthlyCalendarItem_Previews: PreviewProvider {
