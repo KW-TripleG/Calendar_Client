@@ -12,7 +12,7 @@ struct Schedule: Codable, Equatable {
   var endDate: Date
   
   enum CodingKeys: String, CodingKey {
-    case id = "schedule_id"
+    case id = "scheduleId"
     case title
     case content
     case startDate
