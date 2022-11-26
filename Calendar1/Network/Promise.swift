@@ -24,6 +24,7 @@ final class Promise {
       responseData = data
     }
     
+    print("Request -> ", calendarAPI)
     print("Response -> ", String(data: responseData, encoding: .utf8) ?? "")
 
     return try JSONDecoder().decode(Model.self, from: responseData)

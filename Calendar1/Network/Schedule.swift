@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct Schedule: Codable, Equatable {
+struct Schedule: Codable, Equatable, Identifiable {
   var id: Int
   var title: String
   var content: String
