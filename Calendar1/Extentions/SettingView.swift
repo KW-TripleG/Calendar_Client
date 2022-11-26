@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
   @EnvironmentObject var globalRouter: GlobalRouter
+  @EnvironmentObject var global: Global
   @Environment(\.dismiss) private var dismiss
 
   var body: some View {
@@ -16,6 +17,8 @@ struct SettingView: View {
       Form {
         Section {
           Button {
+            UserDefaults.standard.set(nil, forKey: "jwt")
+            self.global.clear()
             self.globalRouter.screen = .signIn
           } label: {
             Text("로그아웃")
