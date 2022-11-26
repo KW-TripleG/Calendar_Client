@@ -30,6 +30,7 @@ enum CalendarAPI {
   case login(id: String, password: String)
   case join(id: String, password: String, name: String, email: String)
   case registerSchedule(title: String, content: String, startDate: Date, endDate: Date)
+  case getSchedule
   
   var baseURL: String { "http://3.39.197.209:8080" }
   
@@ -38,6 +39,7 @@ enum CalendarAPI {
     case .login: return "/login"
     case .join: return "/join"
     case .registerSchedule: return "/schedule"
+    case .getSchedule: return "/schedule"
     }
   }
   
@@ -46,6 +48,7 @@ enum CalendarAPI {
     case .login: return .post
     case .join: return .post
     case .registerSchedule: return .put
+    case .getSchedule: return .get
     }
   }
   
@@ -80,6 +83,8 @@ enum CalendarAPI {
         "endDate": dateFormatter.string(from: endDate),
         "duration": "0"
       ]
+      
+    default: return nil
     }
   }
 }

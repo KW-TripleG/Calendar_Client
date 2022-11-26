@@ -11,7 +11,6 @@ struct MonthlyView: View {
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var global: Global
     @State private var isPresentedAddSchedule: Bool = false
-    
     @State var scheduleViewToggle: Bool = true
     
     var body: some View {
@@ -45,7 +44,6 @@ struct MonthlyView: View {
                         Button (
                             action: {},
                             label: {
-                                Image(systemName: "chevron.left")
                                 Text(CalendarHelper.getYearMonthStr(global.currentMonthDate))
                             }
                         )
@@ -75,9 +73,14 @@ struct MonthlyView: View {
                         })
                 })
             }
-        }.sheet(isPresented: $isPresentedAddSchedule) {
-            AddScheduleView()
         }
+        .onAppear {
+          self.global.fetchSchedules()
+        }
+        .sheet(isPresented: $isPresentedAddSchedule) {
+          AddScheduleView()
+        }
+
     }
 }
 
