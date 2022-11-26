@@ -30,7 +30,7 @@ struct MonthlyView: View {
                             .frame(height: 5)
                     }
 
-                    MonthlyCalendar()
+                    MonthlyCalendar(.init(global: self.global))
                     
                     DailyScheduleView()
                         .background(Color.backgroundColor)
@@ -47,7 +47,7 @@ struct MonthlyView: View {
                             action: {},
                             label: {
                                 Image(systemName: "chevron.left")
-                                Text(CalendarHelper.getYearMonthStr(global.selectedDate))
+                                Text(CalendarHelper.getYearMonthStr(global.currentMonthDate))
                             }
                         )
                     },

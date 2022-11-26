@@ -23,6 +23,8 @@ final class SignInViewModel: ObservableObject {
   @Published var id: String = ""
   @Published var password: String = ""
   
+  @UserDefault(key: "jwt", defaultValue: nil) private var jwt: String?
+  
   init(globalRouter: GlobalRouter) {
     self.globalRouter = globalRouter
   }
@@ -37,7 +39,8 @@ final class SignInViewModel: ObservableObject {
       do {
         let response: LoginResponse = try await Promise.shared.request(.login(id: self.id, password: self.password))
         
-        if response.status == "OKAY" {
+        if response.status == "OK" {
+          self.jwt = response.jwt
           self.globalRouter.screen = .calendar
         } else {
           self.alertMessage = response.message

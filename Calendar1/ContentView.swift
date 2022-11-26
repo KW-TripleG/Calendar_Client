@@ -21,7 +21,6 @@ struct ContentView: View {
       SignUpView(.init(globalRouter: self.globalRounter))
     case .signIn:
       SignInView(.init(globalRouter: self.globalRounter))
-      
     case .calendar:
       MonthlyView()
     }

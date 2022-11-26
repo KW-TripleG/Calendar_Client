@@ -21,6 +21,8 @@ final class SignUpViewModel: ObservableObject {
     }
   }
   
+  @UserDefault(key: "jwt", defaultValue: nil) private var jwt: String?
+  
   @Published var isShowingAlert: Bool = false
   
   @Published var id: String = ""
@@ -59,6 +61,7 @@ extension SignUpViewModel {
         )
         
         if response.status == "OK" {
+          self.jwt = response.jwt
           self.alertMessage = "회원가입이 완료되었습니다."
         }
       } catch let error {

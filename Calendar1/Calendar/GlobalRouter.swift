@@ -14,5 +14,13 @@ enum Screen {
 }
 
 final class GlobalRouter: ObservableObject {
-  @Published var screen: Screen = .signIn
+  @Published var screen: Screen
+  
+  init() {
+    if UserDefaults.standard.string(forKey: "jwt") != nil {
+      self.screen = .calendar
+    } else {
+      self.screen = .signIn
+    }
+  }
 }

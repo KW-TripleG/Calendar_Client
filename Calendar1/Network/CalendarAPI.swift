@@ -82,6 +82,10 @@ extension CalendarAPI {
     request.httpMethod = self.method.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
+    if let jwt = UserDefaults.standard.string(forKey: "jwt") {
+      request.setValue(jwt, forHTTPHeaderField: "X-AUTH-TOKEN")
+    }
+  
     if let body  {
       request.httpBody = try? JSONSerialization.data(withJSONObject: body)
     }
@@ -112,6 +116,8 @@ extension CalendarAPI {
         }
         """.utf8
       )
+      
+    default: return Data()
     }
   }
 }

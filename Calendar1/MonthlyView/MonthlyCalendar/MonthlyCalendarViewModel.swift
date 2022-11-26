@@ -20,11 +20,13 @@ struct HeightAnimation: Equatable {
 final class MonthlyCalendarModel: ObservableObject {
     @Published private(set) var heightAnimation: HeightAnimation = .init(height: nil, shouldAnimate: false)
     @Published private(set) var monthDatas: [MonthData] = []
+    @ObservedObject private var global: Global
     
     private var heightCache: [Int: CGFloat?] = [:]
     private let currentDate: Date
     
-    init() {
+    init(global: Global) {
+        self.global = global
         let currentDate = Date()
         let monthDatas = (-30...30).map { index in
             MonthData(index: index, month: CalendarHelper.getMonthAdding(index, to: currentDate))
@@ -39,6 +41,10 @@ extension MonthlyCalendarModel {
     func pageIndexChanged(_ pageIndex: Int) {
         self.updateHeightIfNeeded(with: pageIndex)
         self.createMonthDatasIfNeeded(with: pageIndex)
+        
+        guard let monthData = self.monthDatas.first(where: { $0.index == pageIndex }) else { return }
+      
+        self.global.currentMonthDate = monthData.month
     }
     
     func updateHeightCache(with index: Int, height: CGFloat?) {

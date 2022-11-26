@@ -35,6 +35,7 @@
 		B14641CE67781A84E6EC5BB6 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1464447594EB1EB37A2D61D /* ScheduleItem.swift */; };
 		B146479B6E19D48CFD7C0F78 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14647716912797D01E913A0 /* Schedule.swift */; };
 		EF9707A42931CE8F00C7F928 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9707A32931CE8F00C7F928 /* SignInViewModel.swift */; };
+		EF9707A62931DEE700C7F928 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9707A52931DEE700C7F928 /* UserDefault.swift */; };
 		EFBA379228E0ADCA009091BF /* HeightPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */; };
 		EFBA379528E0AE0A009091BF /* MonthlyCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */; };
 		EFDF2F3C29226E1E00B99D02 /* GlobalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF2F3B29226E1E00B99D02 /* GlobalRouter.swift */; };
@@ -93,6 +94,7 @@
 		B14647716912797D01E913A0 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		EF9707A22931C2EB00C7F928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EF9707A32931CE8F00C7F928 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		EF9707A52931DEE700C7F928 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPreferenceKey.swift; sourceTree = "<group>"; };
 		EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendarViewModel.swift; sourceTree = "<group>"; };
 		EFDF2F3B29226E1E00B99D02 /* GlobalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalRouter.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				A887843328CC6668004FF3B0 /* HeightReaderView.swift */,
 				EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */,
+				EF9707A52931DEE700C7F928 /* UserDefault.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				A87AC2482929311D008CC48B /* JoinResponse.swift in Sources */,
 				A87F5ED028B3BDF10019F99B /* ViewExtention.swift in Sources */,
 				EFDF2F3C29226E1E00B99D02 /* GlobalRouter.swift in Sources */,
+				EF9707A62931DEE700C7F928 /* UserDefault.swift in Sources */,
 				A882B96528DEC9D100D0EF83 /* SignInView.swift in Sources */,
 				A803BE6C28869C9E00517485 /* DateHolder.swift in Sources */,
 				EF9707A42931CE8F00C7F928 /* SignInViewModel.swift in Sources */,
