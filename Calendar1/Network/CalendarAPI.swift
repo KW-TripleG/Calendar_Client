@@ -68,7 +68,7 @@ enum CalendarAPI {
       return [
         "id": id,
         "password": password,
-        "name": name,
+        "nickName": name,
         "email": email,
       ]
       
