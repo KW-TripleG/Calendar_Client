@@ -19,8 +19,10 @@ struct UserEditView: View {
 				Section {
 					if viewModel.isLoaded {
 						TextField("닉네임", text: $viewModel.nickName)
+								.textContentType(.username)
 
 						TextField("이메일", text: $viewModel.email)
+								.textContentType(.emailAddress)
 
 						SecureField("비밀번호", text: $viewModel.password)
 								.textInputAutocapitalization(.never)
@@ -42,8 +44,11 @@ struct UserEditView: View {
 				}
 
 				Section {
-					Button("제출") {
+					Button {
 						viewModel.updateUser()
+					} label: {
+						Text("제출")
+								.foregroundColor(.blue)
 					}.disabled(!viewModel.isLoaded || viewModel.isUpdating)
 				}
 			}
