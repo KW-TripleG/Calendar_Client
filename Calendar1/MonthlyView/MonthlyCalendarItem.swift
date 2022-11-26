@@ -104,7 +104,7 @@ struct MonthlyCalendarItem: View {
                         
                     HStack {
                         Circle()
-                        .foregroundColor(self.global.shouldShowCircel(date) ? Color.gray : Color.clear)
+                        .foregroundColor(self.global.shouldShowCircle(date) ? Color.gray : Color.clear)
                             .frame(width: 6, height: 6)
                         
                     }

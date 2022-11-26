@@ -19,6 +19,11 @@ struct Schedule: Codable, Equatable, Identifiable {
     case endDate
   }
   
+  enum Title {
+    case allDay(title: String)
+    case limitDay(startTitle: String?, endTitle: String?)
+  }
+  
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     self.id = try values.decode(Int.self, forKey: .id)
@@ -33,6 +38,30 @@ struct Schedule: Codable, Equatable, Identifiable {
     
     self.startDate = dateFormatter.date(from: startDate) ?? Date()
     self.endDate = dateFormatter.date(from: endDate) ?? Date()
+  }
+  
+  func getTitle(selectedDate: Date) -> Title {
+    let startDate = selectedDate.dateWithOutTime
+    let nextDate = CalendarHelper.getDayAdding(1, to: startDate)
+    let endDate = CalendarHelper.getMinAdding(-1, to: nextDate)
+    
+    let isAllDay = self.startDate <= startDate && self.endDate >= endDate
+    
+    if isAllDay {
+      return .allDay(title: "하루 종일")
+    }
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "a h:mm"
+    
+    let startTitle: String? = self.startDate <= startDate
+    ? nil
+    : dateFormatter.string(from: self.startDate)
+    let endTitle = self.endDate >= endDate
+    ? nil
+    : dateFormatter.string(from: self.endDate)
+    
+    return .limitDay(startTitle: startTitle, endTitle: endTitle)
   }
 }
 

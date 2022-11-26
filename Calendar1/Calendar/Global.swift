@@ -39,11 +39,11 @@ final class Global: ObservableObject {
       }
   }
   
-  func shouldShowCircel(_ date: Date) -> Bool {
-    let target = self.getDateWithOutTime(date)
+  func shouldShowCircle(_ date: Date) -> Bool {
+    let target = date.dateWithOutTime
     
     return self.getDates().reduce(false, { result, value in
-      return result || ( self.getDateWithOutTime(value.0) <= target && self.getDateWithOutTime(value.1) >= target )
+      return result || (value.0.dateWithOutTime <= target && value.1.dateWithOutTime >= target )
     })
   }
   
@@ -56,14 +56,6 @@ final class Global: ObservableObject {
         print(error)
       }
     }
-  }
-  
-  private func getDateWithOutTime(_ date: Date) -> Date {
-    guard let parsedDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: date)) else {
-      fatalError("Failed to strip time from Date object")
-    }
-    
-    return parsedDate
   }
 }
 

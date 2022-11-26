@@ -41,6 +41,7 @@
 		EF9707AE2931FC6100C7F928 /* GetScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9707AD2931FC6100C7F928 /* GetScheduleResponse.swift */; };
 		EF9707B02931FDCA00C7F928 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9707AF2931FDCA00C7F928 /* SettingView.swift */; };
 		EF9707B2293220A100C7F928 /* EditScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9707B1293220A100C7F928 /* EditScheduleView.swift */; };
+		EF9707B42932263100C7F928 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9707B32932263100C7F928 /* Date+Extensions.swift */; };
 		EFBA379228E0ADCA009091BF /* HeightPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */; };
 		EFBA379528E0AE0A009091BF /* MonthlyCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */; };
 		EFDF2F3C29226E1E00B99D02 /* GlobalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF2F3B29226E1E00B99D02 /* GlobalRouter.swift */; };
@@ -105,6 +106,7 @@
 		EF9707AD2931FC6100C7F928 /* GetScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScheduleResponse.swift; sourceTree = "<group>"; };
 		EF9707AF2931FDCA00C7F928 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		EF9707B1293220A100C7F928 /* EditScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScheduleView.swift; sourceTree = "<group>"; };
+		EF9707B32932263100C7F928 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPreferenceKey.swift; sourceTree = "<group>"; };
 		EFBA379428E0AE0A009091BF /* MonthlyCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyCalendarViewModel.swift; sourceTree = "<group>"; };
 		EFDF2F3B29226E1E00B99D02 /* GlobalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalRouter.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				A887843328CC6668004FF3B0 /* HeightReaderView.swift */,
 				EFBA379128E0ADCA009091BF /* HeightPreferenceKey.swift */,
 				EF9707A52931DEE700C7F928 /* UserDefault.swift */,
+				EF9707B32932263100C7F928 /* Date+Extensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				A87F5ECC28B3B9F60019F99B /* MonthlyCalendarTitle.swift in Sources */,
 				A88F840A28EAFA3900B68CBF /* SignUpViewModel.swift in Sources */,
 				B14641CE67781A84E6EC5BB6 /* ScheduleItem.swift in Sources */,
+				EF9707B42932263100C7F928 /* Date+Extensions.swift in Sources */,
 				EF9707AC2931F4D300C7F928 /* RegisterScheduleResponse.swift in Sources */,
 				A8DF522E292E827B00E33320 /* CalendarExtension.swift in Sources */,
 				A87AC24A29293DA9008CC48B /* FieldExtention.swift in Sources */,
@@ -618,6 +622,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,6 +655,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
