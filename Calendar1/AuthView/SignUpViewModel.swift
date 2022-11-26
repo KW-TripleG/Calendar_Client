@@ -63,6 +63,8 @@ extension SignUpViewModel {
         if response.status == "OK" {
           self.jwt = response.jwt
           self.alertMessage = "회원가입이 완료되었습니다."
+        } else if response.status == "BAD_REQUEST" {
+          self.alertMessage = response.message
         }
       } catch let error {
         print(error)
