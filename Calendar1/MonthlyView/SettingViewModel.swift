@@ -6,9 +6,16 @@ import Foundation
 
 @MainActor
 final class SettingViewModel: ObservableObject {
-	@Published private(set) var user: User?
+	private var globalRouter: GlobalRouter
+	private var global: Global
 
-	init() {
+	@Published private(set) var user: User?
+	@UserDefault(key: "jwt", defaultValue: nil) private var jwt: String?
+
+	init(_ global: Global, _ globalRouter: GlobalRouter) {
+		self.global = global
+		self.globalRouter = globalRouter
+
 		Task {
 			try await fetchUser()
 		}
@@ -17,5 +24,11 @@ final class SettingViewModel: ObservableObject {
 	private func fetchUser() async throws {
 		let response: GetMeResponse = try await Promise.shared.request(.getMe)
 		user = response.data
+	}
+
+	func signOut() {
+		global.clear()
+		jwt = nil
+		globalRouter.screen = .signIn
 	}
 }
