@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct MonthlyView: View {
-    
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var global: Global
+    @State private var isPresentedAddSchedule: Bool = false
     
     @State var scheduleViewToggle: Bool = true
-    
     
     var body: some View {
         NavigationView() {
@@ -30,7 +29,7 @@ struct MonthlyView: View {
                             .frame(height: 5)
                     }
 
-                    MonthlyCalendar()
+                    MonthlyCalendar(.init(global: self.global))
                     
                     DailyScheduleView()
                         .background(Color.backgroundColor)
@@ -47,7 +46,7 @@ struct MonthlyView: View {
                             action: {},
                             label: {
                                 Image(systemName: "chevron.left")
-                                Text(CalendarHelper.getYearMonthStr(global.selectedDate))
+                                Text(CalendarHelper.getYearMonthStr(global.currentMonthDate))
                             }
                         )
                     },
@@ -69,13 +68,16 @@ struct MonthlyView: View {
                             Image(systemName: "magnifyingglass")
                         })
                         
-                        Button(action: {}, label: {
+                        Button(action: {
+                          self.isPresentedAddSchedule = true
+                        }, label: {
                             Image(systemName: "plus")
                         })
                 })
             }
+        }.sheet(isPresented: $isPresentedAddSchedule) {
+            AddScheduleView()
         }
-        
     }
 }
 

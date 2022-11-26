@@ -9,14 +9,16 @@ import Foundation
 
 
 final class Global: ObservableObject {
-    
     @Published var selectedDate: Date
+    @Published var currentMonthDate: Date
+    
     @Published var schedules: Schedules
     
     private let useMockSchedules: Bool = true
     
     init() {
         self.selectedDate = Date()
+        self.currentMonthDate = Date()
         self.schedules = []
         
         if useMockSchedules {
@@ -26,6 +28,7 @@ final class Global: ObservableObject {
     
     init(schedules: Schedules) {
         self.selectedDate = Date()
+        self.currentMonthDate = Date()
         self.schedules = schedules
     }
 }

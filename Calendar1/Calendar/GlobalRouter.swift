@@ -8,10 +8,19 @@
 import Foundation
 
 enum Screen {
-  case auth
+  case signIn
+  case signUp
   case calendar
 }
 
 final class GlobalRouter: ObservableObject {
-  @Published var screen: Screen = .auth
+  @Published var screen: Screen
+  
+  init() {
+    if UserDefaults.standard.string(forKey: "jwt") != nil {
+      self.screen = .calendar
+    } else {
+      self.screen = .signIn
+    }
+  }
 }
