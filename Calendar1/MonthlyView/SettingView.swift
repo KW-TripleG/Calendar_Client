@@ -55,6 +55,9 @@ struct SettingView: View {
           }
         }
       }
+      .onAppear {
+        viewModel.fetchUser()
+      }
     }
   }
 }

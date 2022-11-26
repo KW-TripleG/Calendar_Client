@@ -16,14 +16,14 @@ final class SettingViewModel: ObservableObject {
 		self.global = global
 		self.globalRouter = globalRouter
 
-		Task {
-			try await fetchUser()
-		}
+		fetchUser()
 	}
 
-	private func fetchUser() async throws {
-		let response: GetMeResponse = try await Promise.shared.request(.getMe)
-		user = response.data
+	func fetchUser() {
+		Task {
+			let response: GetMeResponse = try await Promise.shared.request(.getMe)
+			user = response.data
+		}
 	}
 
 	func signOut() {
