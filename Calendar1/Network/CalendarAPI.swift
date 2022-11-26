@@ -32,6 +32,8 @@ enum CalendarAPI {
   case registerSchedule(title: String, content: String, startDate: Date, endDate: Date)
   case getSchedule
   case updateSchedule(id: Int, title: String, content: String, startDate: Date, endDate: Date)
+  case getMe
+  case updateMe(email: String?, nickName: String?, password: String?)
   
   var baseURL: String { "http://3.39.197.209:8080" }
   
@@ -42,6 +44,8 @@ enum CalendarAPI {
     case .registerSchedule: return "/schedule"
     case .getSchedule: return "/schedule"
     case .updateSchedule: return "/update-schedule"
+    case .getMe: return "/user/me"
+    case .updateMe: return "/user/me"
     }
   }
   
@@ -52,6 +56,8 @@ enum CalendarAPI {
     case .registerSchedule: return .put
     case .getSchedule: return .get
     case .updateSchedule: return .put
+    case .getMe: return .get
+    case .updateMe: return .put
     }
   }
   
@@ -63,6 +69,7 @@ enum CalendarAPI {
     switch self {
     case .login(let id, let password):
       return [
+        "id": id,
         "id": id,
         "password": password
       ]
@@ -86,7 +93,7 @@ enum CalendarAPI {
         "endDate": dateFormatter.string(from: endDate),
         "duration": "0"
       ]
-    
+
     case .updateSchedule(let id, let title, let content, let startDate, let endDate):
       let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -99,7 +106,14 @@ enum CalendarAPI {
         "endDate": dateFormatter.string(from: endDate),
         "duration": "0"
       ]
-      
+
+    case .updateMe(let email, let nickName, let password):
+      return [
+        "email": email,
+        "nickName": nickName,
+        "password": password
+      ].filter { $0.value != nil } as [String: Any]
+
     default: return nil
     }
   }
@@ -154,6 +168,21 @@ extension CalendarAPI {
           "message" : "회원가입 성공"
         }
         """.utf8
+      )
+
+    case .getMe:
+      return Data(
+          """
+          {
+            "data": {
+              "id": "test",
+              "email": "test@example.com",
+              "nickName": "Test"
+            },
+            "status": 200,
+            "message": "유저"
+          }
+          """.utf8
       )
       
     default: return Data()

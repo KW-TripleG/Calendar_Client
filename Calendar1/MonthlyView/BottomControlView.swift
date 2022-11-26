@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BottomControlView: View {
     @State private var isPresentedSetting: Bool = false
+    @EnvironmentObject private var global: Global
+    @EnvironmentObject private var globalRouter: GlobalRouter
 
     var body: some View {
         HStack {
@@ -21,7 +23,7 @@ struct BottomControlView: View {
             Button("초대") {}
         }.padding()
         .sheet(isPresented: $isPresentedSetting) {
-          SettingView()
+          SettingView(.init(global, globalRouter))
         }
     }
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingView: View {
-  @EnvironmentObject var globalRouter: GlobalRouter
   @EnvironmentObject var global: Global
   @Environment(\.dismiss) private var dismiss
   @StateObject private var viewModel: SettingViewModel
@@ -20,17 +19,18 @@ struct SettingView: View {
   var body: some View {
     NavigationView {
       Form {
-        Section {
+        NavigationLink(destination: UserEditView(.init())) {
           let user = viewModel.user
 
           if let user {
-            VStack {
+            VStack(alignment: .leading) {
               if let nickName = user.nickName {
                 Text(nickName).font(.title3)
-                Text(user.email)
               } else {
-                Text(user.email)
+                Text(user.id)
               }
+
+              Text(user.email).foregroundColor(.secondary)
             }
           } else {
             ProgressView()
@@ -40,12 +40,10 @@ struct SettingView: View {
 
         Section {
           Button {
-            UserDefaults.standard.set(nil, forKey: "jwt")
-            self.global.clear()
-            self.globalRouter.screen = .signIn
+            viewModel.signOut()
           } label: {
             Text("로그아웃")
-              .foregroundColor(.red)
+                    .foregroundColor(.red)
           }
         }
       }
@@ -56,6 +54,9 @@ struct SettingView: View {
             self.dismiss()
           }
         }
+      }
+      .onAppear {
+        viewModel.fetchUser()
       }
     }
   }
