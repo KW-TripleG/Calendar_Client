@@ -19,7 +19,7 @@ struct SettingView: View {
   var body: some View {
     NavigationView {
       Form {
-        Section {
+        NavigationLink(destination: UserEditView(.init())) {
           let user = viewModel.user
 
           if let user {

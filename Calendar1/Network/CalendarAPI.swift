@@ -33,7 +33,8 @@ enum CalendarAPI {
   case getSchedule
   case updateSchedule(id: Int, title: String, content: String, startDate: Date, endDate: Date)
   case getMe
-
+  case updateMe(email: String?, nickName: String?, password: String?)
+  
   var baseURL: String { "http://3.39.197.209:8080" }
   
   var path: String {
@@ -44,6 +45,7 @@ enum CalendarAPI {
     case .getSchedule: return "/schedule"
     case .updateSchedule: return "/update-schedule"
     case .getMe: return "/user/me"
+    case .updateMe: return "/user/me"
     }
   }
   
@@ -55,6 +57,7 @@ enum CalendarAPI {
     case .getSchedule: return .get
     case .updateSchedule: return .put
     case .getMe: return .get
+    case .updateMe: return .put
     }
   }
   
@@ -90,7 +93,7 @@ enum CalendarAPI {
         "endDate": dateFormatter.string(from: endDate),
         "duration": "0"
       ]
-    
+
     case .updateSchedule(let id, let title, let content, let startDate, let endDate):
       let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -103,7 +106,14 @@ enum CalendarAPI {
         "endDate": dateFormatter.string(from: endDate),
         "duration": "0"
       ]
-      
+
+    case .updateMe(let email, let nickName, let password):
+      return [
+        "email": email,
+        "nickName": nickName,
+        "password": password
+      ].filter { $0.value != nil } as [String: Any]
+
     default: return nil
     }
   }
