@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DailyScheduleView: View {
-//    @Binding var schedules: Array<Schedule>
     @EnvironmentObject var global: Global
 
     var body: some View {

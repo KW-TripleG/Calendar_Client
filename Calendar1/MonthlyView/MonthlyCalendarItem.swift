@@ -112,6 +112,7 @@ struct MonthlyCalendarItem: View {
                     Spacer().frame(height: 10)
                     
                 }
+                .contentShape(Rectangle())
                 .onTapGesture {
                     // TODO: 추후 ViewModel로 분리 예정
                     global.selectedDate = date
