@@ -70,7 +70,6 @@ enum CalendarAPI {
     case .login(let id, let password):
       return [
         "id": id,
-        "id": id,
         "password": password
       ]
       
