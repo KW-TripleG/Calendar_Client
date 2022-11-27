@@ -34,6 +34,7 @@ struct Schedule: Codable, Equatable, Identifiable {
     let endDate = try values.decode(String.self, forKey: .endDate)
     
     let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone.current
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
     
     self.startDate = dateFormatter.date(from: startDate) ?? Date()
@@ -53,6 +54,8 @@ struct Schedule: Codable, Equatable, Identifiable {
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "a h:mm"
+    dateFormatter.timeZone = TimeZone.current
+    dateFormatter.locale = Locale(identifier: "ko_KR")
     
     let startTitle: String? = self.startDate <= startDate
     ? nil

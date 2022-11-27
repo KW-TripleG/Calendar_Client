@@ -27,18 +27,16 @@ struct ScheduleItem: View {
         case .allDay(let title):
           Text(title)
             .fontWeight(.light)
-            .foregroundColor(Color(UIColor.black))
         case .limitDay(let startTitle, let endTitle):
           if let startTitle {
             Text(startTitle)
               .font(.system(.footnote, design: .monospaced))
-              .foregroundColor(Color(UIColor.black))
           }
           
           if let endTitle {
             Text(endTitle)
               .font(.system(.footnote, design: .monospaced))
-              .foregroundColor(Color(UIColor.darkGray))
+              .foregroundColor(Color.gray)
           }
         }
       }
