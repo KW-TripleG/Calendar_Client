@@ -27,14 +27,12 @@ struct UserEditView: View {
 						SecureField("비밀번호", text: $viewModel.password)
 								.textInputAutocapitalization(.never)
 								.disableAutocorrection(true)
-								.background(Color.textFieldColor)
 								.textContentType(.password)
 								.privacySensitive()
 
 						SecureField("비밀번호 확인", text: $viewModel.confirmPassword)
 								.textInputAutocapitalization(.never)
 								.disableAutocorrection(true)
-								.background(Color.textFieldColor)
 								.textContentType(.password)
 								.privacySensitive()
 					} else {
@@ -48,7 +46,7 @@ struct UserEditView: View {
 						viewModel.updateUser()
 					} label: {
 						Text("제출")
-								.foregroundColor(.blue)
+								.foregroundColor(.red)
 					}.disabled(!viewModel.isLoaded || viewModel.isUpdating)
 				}
 			}
